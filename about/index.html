@@ -76,7 +76,7 @@
             <li class="waves-block waves-effect">
               <a href="/archives"  >
                 <i class="icon icon-lg icon-archives"></i>
-                Archives
+                文章
               </a>
             </li>
         
@@ -90,7 +90,14 @@
             <li class="waves-block waves-effect">
               <a href="https://weibo.com/3207855562" target="_blank" >
                 <i class="icon icon-lg icon-weibo"></i>
-                Weibo
+                微博
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://q012306.xicp.net/" target="_blank" >
+                <i class="icon icon-lg icon-我的树莓派"></i>
+                我的树莓派
               </a>
             </li>
         
@@ -365,10 +372,10 @@ var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
     var OriginTitile = document.title, titleTime;
     document.addEventListener('visibilitychange', function() {
         if (document.hidden) {
-            document.title = '死鬼去哪里了！';
+            document.title = '(つェ⊂)看不见。';
             clearTimeout(titleTime);
         } else {
-            document.title = '(つェ⊂)咦!又好了!';
+            document.title = '(つェ0)咦!';
             titleTime = setTimeout(function() {
                 document.title = OriginTitile;
             },2000);

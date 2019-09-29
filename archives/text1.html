@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>【转载】ANDROID中调用文件管理器并返回选中文件的路径 | GoodGuy&#39;blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content>
+    <meta name="description" content="实际项目中经常需要调用文件管理器，选择下载路径或者上传的本地文件路径。今天就给大家做个demo示范该功能的实现过程。 一、实现效果预览以下为三星S6的样机测试效果，当然不同手机调用后的效果不一样。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【转载】ANDROID中调用文件管理器并返回选中文件的路径">
+<meta property="og:url" content="http://goodguy.cc/archives/text1.html">
+<meta property="og:site_name" content="GoodGuy&#39;blog">
+<meta property="og:description" content="实际项目中经常需要调用文件管理器，选择下载路径或者上传的本地文件路径。今天就给大家做个demo示范该功能的实现过程。 一、实现效果预览以下为三星S6的样机测试效果，当然不同手机调用后的效果不一样。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/1068139/201704/1068139-20170423095853116-868763186.gif">
+<meta property="og:updated_time" content="2019-09-29T11:26:18.924Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【转载】ANDROID中调用文件管理器并返回选中文件的路径">
+<meta name="twitter:description" content="实际项目中经常需要调用文件管理器，选择下载路径或者上传的本地文件路径。今天就给大家做个demo示范该功能的实现过程。 一、实现效果预览以下为三星S6的样机测试效果，当然不同手机调用后的效果不一样。">
+<meta name="twitter:image" content="http://images2015.cnblogs.com/blog/1068139/201704/1068139-20170423095853116-868763186.gif">
+    
+        <link rel="alternate" type="application/atom+xml" title="GoodGuy&#39;blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">GoodGuy</h5>
+          <a href="mailto:2560861029@qq.com" title="2560861029@qq.com" class="mail">2560861029@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect active">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                文章
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/q012306" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://weibo.com/3207855562" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                微博
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://q012306.xicp.net/" target="_blank" >
+                <i class="icon icon-lg icon-我的树莓派"></i>
+                我的树莓派
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-link"></i>
+                关于我
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">【转载】ANDROID中调用文件管理器并返回选中文件的路径</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">【转载】ANDROID中调用文件管理器并返回选中文件的路径</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-09-29T10:58:15.000Z" itemprop="datePublished" class="page-time">
+  2019-09-29
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#一、实现效果预览"><span class="post-toc-number">1.</span> <span class="post-toc-text">一、实现效果预览</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#二、代码实现"><span class="post-toc-number">2.</span> <span class="post-toc-text">二、代码实现</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#三、小结"><span class="post-toc-number">3.</span> <span class="post-toc-text">三、小结</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-text1"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">【转载】ANDROID中调用文件管理器并返回选中文件的路径</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-09-29 18:58:15" datetime="2019-09-29T10:58:15.000Z"  itemprop="datePublished">2019-09-29</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>实际项目中经常需要调用文件管理器，选择下载路径或者上传的本地文件路径。今天就给大家做个demo示范该功能的实现过程。</p>
+<h1 id="一、实现效果预览"><a href="#一、实现效果预览" class="headerlink" title="一、实现效果预览"></a>一、实现效果预览</h1><p>以下为三星S6的样机测试效果，当然不同手机调用后的效果不一样。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="http://images2015.cnblogs.com/blog/1068139/201704/1068139-20170423095853116-868763186.gif" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h1 id="二、代码实现"><a href="#二、代码实现" class="headerlink" title="二、代码实现"></a>二、代码实现</h1><p>布局文件很简单，就一个Button和TextView，这里不示范了，直接上实现代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br></pre></td><td class="code"><pre><span class="line">package com.panhouye.selectfile;</span><br><span class="line"></span><br><span class="line">import android.annotation.SuppressLint;</span><br><span class="line">import android.app.Activity;</span><br><span class="line">import android.content.ContentUris;</span><br><span class="line">import android.content.Context;</span><br><span class="line">import android.content.Intent;</span><br><span class="line">import android.database.Cursor;</span><br><span class="line">import android.net.Uri;</span><br><span class="line">import android.os.Build;</span><br><span class="line">import android.os.Bundle;</span><br><span class="line">import android.os.Environment;</span><br><span class="line">import android.provider.DocumentsContract;</span><br><span class="line">import android.provider.MediaStore;</span><br><span class="line">import android.support.v7.app.AppCompatActivity;</span><br><span class="line">import android.view.View;</span><br><span class="line">import android.widget.Button;</span><br><span class="line">import android.widget.TextView;</span><br><span class="line">import android.widget.Toast;</span><br><span class="line"></span><br><span class="line">public class MainActivity extends AppCompatActivity &#123;</span><br><span class="line">    TextView tv;</span><br><span class="line">    @Override</span><br><span class="line">    protected void onCreate(Bundle savedInstanceState) &#123;</span><br><span class="line">        super.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_main);</span><br><span class="line">        Button btn = (Button) findViewById(R.id.btn);</span><br><span class="line">        tv = (TextView) findViewById(R.id.tv);</span><br><span class="line">        btn.setOnClickListener(new View.OnClickListener() &#123;</span><br><span class="line">            @Override</span><br><span class="line">            public void onClick(View v) &#123;</span><br><span class="line">                Intent intent = new Intent(Intent.ACTION_GET_CONTENT);</span><br><span class="line">                //intent.setType(“image/*”);//选择图片</span><br><span class="line">                //intent.setType(“audio/*”); //选择音频</span><br><span class="line">                //intent.setType(“video/*”); //选择视频 （mp4 3gp 是android支持的视频格式）</span><br><span class="line">                //intent.setType(“video/*;image/*”);//同时选择视频和图片</span><br><span class="line">                intent.setType(&quot;*/*&quot;);//无类型限制</span><br><span class="line">                intent.addCategory(Intent.CATEGORY_OPENABLE);</span><br><span class="line">                startActivityForResult(intent, 1);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    String path;</span><br><span class="line">    @Override</span><br><span class="line">    protected void onActivityResult(int requestCode, int resultCode, Intent data) &#123;</span><br><span class="line">        if (resultCode == Activity.RESULT_OK) &#123;</span><br><span class="line">            Uri uri = data.getData();</span><br><span class="line">            if (&quot;file&quot;.equalsIgnoreCase(uri.getScheme()))&#123;//使用第三方应用打开</span><br><span class="line">                path = uri.getPath();</span><br><span class="line">                tv.setText(path);</span><br><span class="line">                Toast.makeText(this,path+&quot;11111&quot;,Toast.LENGTH_SHORT).show();</span><br><span class="line">                return;</span><br><span class="line">            &#125;</span><br><span class="line">            if (Build.VERSION.SDK_INT &gt; Build.VERSION_CODES.KITKAT) &#123;//4.4以后</span><br><span class="line">                path = getPath(this, uri);</span><br><span class="line">                tv.setText(path);</span><br><span class="line">                Toast.makeText(this,path,Toast.LENGTH_SHORT).show();</span><br><span class="line">            &#125; else &#123;//4.4以下下系统调用方法</span><br><span class="line">                path = getRealPathFromURI(uri);</span><br><span class="line">                tv.setText(path);</span><br><span class="line">                Toast.makeText(MainActivity.this, path+&quot;222222&quot;, Toast.LENGTH_SHORT).show();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public String getRealPathFromURI(Uri contentUri) &#123;</span><br><span class="line">        String res = null;</span><br><span class="line">        String[] proj = &#123; MediaStore.Images.Media.DATA &#125;;</span><br><span class="line">        Cursor cursor = getContentResolver().query(contentUri, proj, null, null, null);</span><br><span class="line">        if(null!=cursor&amp;&amp;cursor.moveToFirst())&#123;;</span><br><span class="line">            int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);</span><br><span class="line">            res = cursor.getString(column_index);</span><br><span class="line">            cursor.close();</span><br><span class="line">        &#125;</span><br><span class="line">        return res;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 专为Android4.4设计的从Uri获取文件绝对路径，以前的方法已不好使</span><br><span class="line">     */</span><br><span class="line">    @SuppressLint(&quot;NewApi&quot;)</span><br><span class="line">    public String getPath(final Context context, final Uri uri) &#123;</span><br><span class="line"></span><br><span class="line">        final boolean isKitKat = Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.KITKAT;</span><br><span class="line"></span><br><span class="line">        // DocumentProvider</span><br><span class="line">        if (isKitKat &amp;&amp; DocumentsContract.isDocumentUri(context, uri)) &#123;</span><br><span class="line">            // ExternalStorageProvider</span><br><span class="line">            if (isExternalStorageDocument(uri)) &#123;</span><br><span class="line">                final String docId = DocumentsContract.getDocumentId(uri);</span><br><span class="line">                final String[] split = docId.split(&quot;:&quot;);</span><br><span class="line">                final String type = split[0];</span><br><span class="line"></span><br><span class="line">                if (&quot;primary&quot;.equalsIgnoreCase(type)) &#123;</span><br><span class="line">                    return Environment.getExternalStorageDirectory() + &quot;/&quot; + split[1];</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            // DownloadsProvider</span><br><span class="line">            else if (isDownloadsDocument(uri)) &#123;</span><br><span class="line"></span><br><span class="line">                final String id = DocumentsContract.getDocumentId(uri);</span><br><span class="line">                final Uri contentUri = ContentUris.withAppendedId(</span><br><span class="line">                        Uri.parse(&quot;content://downloads/public_downloads&quot;), Long.valueOf(id));</span><br><span class="line"></span><br><span class="line">                return getDataColumn(context, contentUri, null, null);</span><br><span class="line">            &#125;</span><br><span class="line">            // MediaProvider</span><br><span class="line">            else if (isMediaDocument(uri)) &#123;</span><br><span class="line">                final String docId = DocumentsContract.getDocumentId(uri);</span><br><span class="line">                final String[] split = docId.split(&quot;:&quot;);</span><br><span class="line">                final String type = split[0];</span><br><span class="line"></span><br><span class="line">                Uri contentUri = null;</span><br><span class="line">                if (&quot;image&quot;.equals(type)) &#123;</span><br><span class="line">                    contentUri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;</span><br><span class="line">                &#125; else if (&quot;video&quot;.equals(type)) &#123;</span><br><span class="line">                    contentUri = MediaStore.Video.Media.EXTERNAL_CONTENT_URI;</span><br><span class="line">                &#125; else if (&quot;audio&quot;.equals(type)) &#123;</span><br><span class="line">                    contentUri = MediaStore.Audio.Media.EXTERNAL_CONTENT_URI;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                final String selection = &quot;_id=?&quot;;</span><br><span class="line">                final String[] selectionArgs = new String[]&#123;split[1]&#125;;</span><br><span class="line"></span><br><span class="line">                return getDataColumn(context, contentUri, selection, selectionArgs);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        // MediaStore (and general)</span><br><span class="line">        else if (&quot;content&quot;.equalsIgnoreCase(uri.getScheme())) &#123;</span><br><span class="line">            return getDataColumn(context, uri, null, null);</span><br><span class="line">        &#125;</span><br><span class="line">        // File</span><br><span class="line">        else if (&quot;file&quot;.equalsIgnoreCase(uri.getScheme())) &#123;</span><br><span class="line">            return uri.getPath();</span><br><span class="line">        &#125;</span><br><span class="line">        return null;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * Get the value of the data column for this Uri. This is useful for</span><br><span class="line">     * MediaStore Uris, and other file-based ContentProviders.</span><br><span class="line">     *</span><br><span class="line">     * @param context       The context.</span><br><span class="line">     * @param uri           The Uri to query.</span><br><span class="line">     * @param selection     (Optional) Filter used in the query.</span><br><span class="line">     * @param selectionArgs (Optional) Selection arguments used in the query.</span><br><span class="line">     * @return The value of the _data column, which is typically a file path.</span><br><span class="line">     */</span><br><span class="line">    public String getDataColumn(Context context, Uri uri, String selection,</span><br><span class="line">                                String[] selectionArgs) &#123;</span><br><span class="line"></span><br><span class="line">        Cursor cursor = null;</span><br><span class="line">        final String column = &quot;_data&quot;;</span><br><span class="line">        final String[] projection = &#123;column&#125;;</span><br><span class="line"></span><br><span class="line">        try &#123;</span><br><span class="line">            cursor = context.getContentResolver().query(uri, projection, selection, selectionArgs,</span><br><span class="line">                    null);</span><br><span class="line">            if (cursor != null &amp;&amp; cursor.moveToFirst()) &#123;</span><br><span class="line">                final int column_index = cursor.getColumnIndexOrThrow(column);</span><br><span class="line">                return cursor.getString(column_index);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; finally &#123;</span><br><span class="line">            if (cursor != null)</span><br><span class="line">                cursor.close();</span><br><span class="line">        &#125;</span><br><span class="line">        return null;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * @param uri The Uri to check.</span><br><span class="line">     * @return Whether the Uri authority is ExternalStorageProvider.</span><br><span class="line">     */</span><br><span class="line">    public boolean isExternalStorageDocument(Uri uri) &#123;</span><br><span class="line">        return &quot;com.android.externalstorage.documents&quot;.equals(uri.getAuthority());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * @param uri The Uri to check.</span><br><span class="line">     * @return Whether the Uri authority is DownloadsProvider.</span><br><span class="line">     */</span><br><span class="line">    public boolean isDownloadsDocument(Uri uri) &#123;</span><br><span class="line">        return &quot;com.android.providers.downloads.documents&quot;.equals(uri.getAuthority());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * @param uri The Uri to check.</span><br><span class="line">     * @return Whether the Uri authority is MediaProvider.</span><br><span class="line">     */</span><br><span class="line">    public boolean isMediaDocument(Uri uri) &#123;</span><br><span class="line">        return &quot;com.android.providers.media.documents&quot;.equals(uri.getAuthority());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="三、小结"><a href="#三、小结" class="headerlink" title="三、小结"></a>三、小结</h1><p>这是调用系统自带的文件管理，无法保证和控制统一的界面显示，所以大家还是要实现与自己APP统一的文件管理界面，共勉。</p>
+<blockquote>
+<p>原文地址：<a href="http://www.cnblogs.com/panhouye/archive/2017/04/23/6751710.html" target="_blank" rel="noopener">http://www.cnblogs.com/panhouye/archive/2017/04/23/6751710.html</a></p>
+</blockquote>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-09-29T11:26:18.924Z" itemprop="dateUpdated">2019-09-29 19:26:18</time>
+</span><br>
+
+
+        
+        本文地址：<a href="/archives/text1.html" target="_blank" rel="external">http://goodguy.cc/archives/text1.html</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://goodguy.cc">
+            <img src="/img/avatar.jpg" alt="GoodGuy">
+            GoodGuy
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://goodguy.cc/archives/text1.html&title=《【转载】ANDROID中调用文件管理器并返回选中文件的路径》 — GoodGuy'blog&pic=http://goodguy.cc/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://goodguy.cc/archives/text1.html&title=《【转载】ANDROID中调用文件管理器并返回选中文件的路径》 — GoodGuy'blog&source=低调做人,低调做事.咸鱼虽寿,犹有竟时." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://goodguy.cc/archives/text1.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《【转载】ANDROID中调用文件管理器并返回选中文件的路径》 — GoodGuy'blog&url=http://goodguy.cc/archives/text1.html&via=http://goodguy.cc" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://goodguy.cc/archives/text1.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/archives/tool2.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">【工具推荐】 神经卷积网络图片放大-waifu2x</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>GoodGuy &copy; 2017 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://goodguy.cc/archives/text1.html&title=《【转载】ANDROID中调用文件管理器并返回选中文件的路径》 — GoodGuy'blog&pic=http://goodguy.cc/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://goodguy.cc/archives/text1.html&title=《【转载】ANDROID中调用文件管理器并返回选中文件的路径》 — GoodGuy'blog&source=低调做人,低调做事.咸鱼虽寿,犹有竟时." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://goodguy.cc/archives/text1.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《【转载】ANDROID中调用文件管理器并返回选中文件的路径》 — GoodGuy'blog&url=http://goodguy.cc/archives/text1.html&via=http://goodguy.cc" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://goodguy.cc/archives/text1.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABxElEQVR42u3aO46EMBAFQO5/aTbZYBPM6/ZHrFSORhrABUHLfu3risf9Z1TvWvW0CxcX9yD3Ho7xxD360/PHBlxc3PPcVRP0PkFiwMXF/T63ugJ5+hcXF/e/c6uvkaBxcXG/zM0LUB5zJHdt3Kvh4uJOcHuhxtrfW/JdXFzcFveeGNUGyT09cHFxz3BnNjm9eDSPSB5LHi4u7mbuuDzlxN5GKH+Zl5QFFxd3Kbd3TKpaKfOYI5Lg4uIe544LUO/FqluglwAFFxf3IDcJMcdX5kWqugAqIHBxcRdxe4FIofS0Zml+Y1xc3Glu8tDetqfXUIkCEVxc3M3cmRBkVfwxUxZxcXH3cWfCjmpoUm3TLst3cXFx4+f02hv5AqV3qGuqhOHi4k5zq8uUVZuifMFUrqO4uLjT3GRZk0+cN1mrV/7+xsXFPcKthp69dks1iXlZGOHi4m7m3sVRfZnegYwov8HFxd3Gneld9pZEq4554eLi7uZWi1dvO/QEqs6Fi4t7kps3RPPpe8etop4wLi7uZ7hj4r4rcXFxv8zN2x55ezVv3OLi4p7nzh+36iUx5TYMLi7uEW4emFaXQcmUvYMduLi427g/lhTdRAVLKTYAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '(つェ⊂)看不见。';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ0)咦!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
