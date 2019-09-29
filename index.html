@@ -1,789 +1,657 @@
 <!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    
 
-<html lang="zh-CN">
-    <head>
+    
+
+    
+
+
+
     <meta charset="utf-8">
-    <!--
-        © SukkaW
-        GitHub: https://github.com/SukkaW/hexo-theme-suka
-        Version: 1.3.3
-    -->
-    <script>
-window.lsVersion = "1.3.3",
-window.oldVersion = [
     
-        
-            "0.2.0","0.0.1","0.1.0","1.0.0","1.0.1","1.1.0","1.1.1","1.2.0","1.3.0","1.3.2"
-        
     
-]
-</script>
-
-    <!-- ### DNS Prefetch ### -->
-    <meta http-equiv="x-dns-prefetch-control" content="on">
-<!-- busuanzi -->
-
-    <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
-
-
-<!-- comment -->
-
-
-
-
-
-
-
-<!-- analytics -->
-
-
-
-
-
-
-
-
-    <!-- ### Preload ### -->
     
-    <!-- Busuanzi -->
     
-    <link rel="preload" href="https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.js" as="script">
-
-
-
-
-
-
-
-    <!-- ### Meta & Title & Info ### -->
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
-<meta name="renderer" content="webkit">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-
-<!-- Title -->
-<title>GoodGuy&#39;blog</title>
-
-<!-- favicon -->
-<!-- Favicons -->
-
-    <link rel="icon" type="image/ico" href="/img/suka-favicon.ico">
-
-
-
-
-
-
-<!-- Android Chrome Color -->
-
-
-
-<meta name="format-detection" content="telephone=no">
-
-<!-- Description -->
-<meta name="description" content="低调做人,低调做事.咸鱼虽寿,犹有竟时.">
-
-<!-- Keywords -->
-<meta name="keywords" content="">
-
-<!-- Disable Fucking Bloody Baidu Tranformation -->
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-    <!-- ### Import File ### -->
+    <title>GoodGuy&#39;blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-        <!-- spectre.css -->
-
-    <link rel="stylesheet" href="/lib/spectre/spectre.min.css">
-
-
-<style>
-    body {
-        background-color: #f8f9fa;
-    }
-
-    a, a:visited {
-        color: #0070ff;
-    }
-
-    a:active, a:focus, a:hover {
-        color: #0070ff;
-        opacity: .75;
-    }
-
-    #post-content a,
-    #post-content a:hover,
-    #post-content a:focus,
-    #post-content a:visited {
-        color: #005eb9;
-        opacity: 1;
-    }
-
-    .post-entry .card-body a {
-        color: #0070ff;
-    }
-
-    .avatar {
-        background: #444;
-    }
-
-    .navbar-link,
-    .navbar-link:visited,
-    .timeline .timeline-item .timeline-icon.icon-lg {
-        color: #0070ff;
-    }
-
-    .navbar-link:hover {
-        color: #0070ff;
-        opacity: .8;
-    }
-
-    #search-input .btn,
-    #disqus_click_btn,
-    #disqus-switch-to-direct,
-    #disqus-loadmore-button {
-        background: #727e96;
-        border-color: #727e96;
-        color: #fff;
-    }
-
-    #post-toc a.post-toc-link,
-    #post-toc a.post-toc-link:visited,
-    .share-menu.menu .menu-item>a {
-        color: #727e96;
-    }
-
-    .share-menu.menu .menu-item>a:hover,
-    .share-menu.menu .menu-item>a:focus,
-    .share-menu.menu .menu-item>a:visited {
-        color: #50596c;
-        background: #f8f9fa;
-        opacity: .85;
-    }
-</style>
-
-<!-- style.css -->
-
-    <link rel="stylesheet" href="/css/style.min.css">
-
-
-
-
-
-
-
-
-
-    <!-- Prettify Theme -->
+    <meta name="theme-color" content="#3F51B5">
     
-
-
     
-
-    <!-- ### Site Verification ### -->
-    
-
-
-    <!-- ### RSS ### -->
-    
-
-    <!-- ### WebApp ### -->
-    <meta name="mobile-web-app-capable" content="yes">
-<meta name="application-name" content="GoodGuy&#39;blog">
-<meta name="msapplication-starturl" content="http://yoursite.com">
-
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-title" content="GoodGuy&#39;blog">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-
-<!-- Manifest Import -->
-
-<!-- Open Search -->
-
-
-    <!-- ### The Open Graph & Twitter Card Protocol ### -->
-    <meta property="og:title" content="GoodGuy&#39;blog">
+    <meta name="keywords" content>
+    <meta name="description" content="低调做人,低调做事.咸鱼虽寿,犹有竟时.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="GoodGuy&#39;blog">
+<meta property="og:url" content="http://goodguy.cc/index.html">
 <meta property="og:site_name" content="GoodGuy&#39;blog">
-
-<meta property="og:locale" content="zh-CN">
-
-<meta property="og:url" content="http://yoursite.com/">
-<meta property="og:image" content="http://yoursite.com/img/suka-favicon.ico">
-
 <meta property="og:description" content="低调做人,低调做事.咸鱼虽寿,犹有竟时.">
-
+<meta property="og:locale" content="zh-CN">
 <meta name="twitter:card" content="summary">
-
-
-    <meta property="og:type" content="blog">
-
-
-
-
-
-    <!-- ### Analytics ### -->
+<meta name="twitter:title" content="GoodGuy&#39;blog">
+<meta name="twitter:description" content="低调做人,低调做事.咸鱼虽寿,犹有竟时.">
     
-
-
-
-
-
-
-
-
-    <!-- ### Canonical link ### -->
-    <link rel="canonical" href="http://yoursite.com/">
-
-    <!-- ### Structured Data ### -->
+        <link rel="alternate" type="application/atom+xml" title="GoodGuy&#39;blog" href="/atom.xml">
     
-<script type="application/ld+json">
-{
-    "@context": "http://schema.org",
-    "@type": "Blog",
-    "author": {
-        "@type": "Person",
-        "name": "GoodGuy",
-        "image": {
-            "@type": "ImageObject",
-            "url": "http://yoursite.com/img/default_avatar.png"
-        },
-        "description": "Hi, nice to meet you."
-    },
-    "publisher": {
-        "@type": "Organization",
-        "name": "GoodGuy&#39;blog",
-        "logo": {
-            "@type": "ImageObject",
-            "url": "http://yoursite.com/img/suka-favicon.ico"
-        }
-    },
-    "url": "http://yoursite.com",
-    "logo": "http://yoursite.com/img/suka-favicon.ico",
-    "image": {
-        "@type": "ImageObject",
-        "url": "http://yoursite.com/img/suka-favicon.ico"
-    },
-    "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": "http://yoursite.com"
-    },
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
     
-    "potentialAction": {
-        "@type": "SearchAction",
-        "target": "http://yoursite.com/search?s={search_term_string}",
-        "query-input": "required name=search_term_string"
-    },
-    
-    "keywords": "",
-    "description": "低调做人,低调做事.咸鱼虽寿,犹有竟时."
-}
-</script>
-
-
-
-
-
-    <!-- ### Custom Head ### -->
-    
-
 
 </head>
 
-    <body>
-        
+<body>
+    <div id="loading" class="active"></div>
 
+    <aside id="menu"  >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">GoodGuy</h5>
+          <a href="mailto:2560861029@qq.com" title="2560861029@qq.com" class="mail">2560861029@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect active">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/q012306" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://weibo.com/3207855562" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-link"></i>
+                关于我
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">GoodGuy&#39;blog</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header index-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">GoodGuy&#39;blog</h1>
+        <h5 class="subtitle">
             
-
-            <!-- ### Main content ### -->
-            <!-- ## Header ##-->
-<header>
-    <h1 class="header-title text-center"><a href="/">GoodGuy&#39;blog</a></h1>
-
-    <p class="text-center header-slogan">
-        
+                
             
-                Hi, nice to meet you.
-            
-        
-    </p>
+        </h5>
+    </div>
 
-    <nav class="navbar-section text-center">
     
-        <a href="/" class="navbar-link">首页</a>
-    
-    
-        <a href="/archives/" class="navbar-link">归档</a>
-    
-    
-        <a href="/search" class="navbar-link">搜索</a>
-    
-    
-        <a href="/links/" class="navbar-link">Friends</a>
-    
-    
-        <div class="dropdown dropdown-right">
-    <a class="navbar-link dropdown-toggle" tabindex="0">分享</a>
-    <ul class="menu share-menu">
 
-        <!-- Share Weibo -->
-        
-        <li class="menu-item">
-            <a href="http://service.weibo.com/share/share.php?appkey=&title=GoodGuy'blog&url=http://yoursite.com&pic=http://yoursite.com/img/suka-favicon.ico&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">分享到微博</a>
-        </li>
-        
 
-        <!-- Share Twitter -->
-        
-        <li class="menu-item">
-            <a href="https://twitter.com/intent/tweet?text=GoodGuy'blog&url=http://yoursite.com&via=GoodGuy" target="_blank" rel="external noopener noreferrer nofollow">分享到 Twitter</a>
-        </li>
-        
-
-        <!-- Share Facebook -->
-        
-        <li class="menu-item">
-            <a href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com" target="_blank" rel="external noopener noreferrer nofollow">分享到 Facebook</a>
-        </li>
-        
-
-        <!-- Share Google+ -->
-        
-        <li class="menu-item">
-            <a href="https://plus.google.com/share?url=http://yoursite.com" target="_blank" rel="external noopener noreferrer nofollow">分享到 Google+</a>
-        </li>
-        
-
-        <!-- Share LinkedIn -->
-        
-        <li class="menu-item">
-            <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://yoursite.com&title=" target="_blank" rel="external noopener noreferrer nofollow">分享到 LinkedIn</a>
-        </li>
-        
-
-        <!-- Share QQ -->
-        
-        <li class="menu-item">
-            <a href="http://connect.qq.com/widget/shareqq/index.html?site=GoodGuy'blog&title=&summary=低调做人,低调做事.咸鱼虽寿,犹有竟时.&pics=http://yoursite.com/img/suka-favicon.ico&url=http://yoursite.com" target="_blank" rel="external noopener noreferrer nofollow"> 分享到 QQ</a>
-        </li>
-        
-
-        <!-- Share Telegram -->
-        
-        <li class="menu-item">
-            <a href="https://t.me/share/url?url=http://yoursite.com&text=" target="_blank" rel="external noopener noreferrer nofollow">分享到 Telegram</a>
-        </li>
-        
-
-        <!-- QRCode -->
-        
-        <li class="menu-item">
-            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHQAAAB0CAAAAABx8Un7AAABLklEQVR42u3ZwbLCMAiF4bz/S+u2dsLJIW2hzvzZePV28i1ECGR8GtYABQXdQodY5///bCCem+0DWotOv/Tjw8Hfx/fWPqCl6Cww1ObqNdoH9B2okwBA/xfNPA/aj0aJOgooldgvVxnQy6j7o3cT/S2nQdBtdNn0LJLEI10b6CVUHcCmwWAW91RGAr0VPScJuyAnPwftRRXsDj+mhR60BY2CIkoIKhjtQAK9FV0lfGfD1XAStB6NDtBu0rCHl6AlqHu4zjZbVsIHfRTNXCBkhpag9ajTCDmFXTVRoLWoO+hwD9VyaAlagu5exDvDaNA+1Amg1ZDZCjLQUtS9tM0UiWXXBtqCqkTuNMmg70StyztR0EF7UCfh71zcgvagzvDCHXbJoTVoCVq5QEFBU+sL0YSSIugE1CwAAAAASUVORK5CYII=" alr="QRCode">
-        </li>
-        
-
-    </ul>
-</div>
-    
-    
-</nav>
 </header>
 
-            <div class="container">
-    <div class="main-container">
-        <main>
-            <div class="post-stream-container">
-                <!-- # Post List # -->
-                
-                    
-                        
-    <script src="/lib/vanilla-lazyload/lazyload.min.js" async></script>
+<div class="container body-wrap">
 
-<article class="post-entry container px-0 card">
-        <div class="columns col-gapless">
-            
-                <div class="column col-12">
-                    
-    <h2 class="h5 mb-0 card-header"><a class="card-title" href="/archives/test.html" rel="bookmark">【转载】ANDROID中调用文件管理器并返回选中文件的路径</a></h2>
-
-
-<p class="mb-0 card-body">
+    <ul class="post-list">
     
-            实际项目中经常需要调用文件管理器，选择下载路径或者上传的本地文件路径。今天就给大家做个demo示范该功能的实现...
-    <a href="/archives/test.html">阅读全文</a>
-</p>
+        <li class="post-list-item fade">
+            <article id="post-Reprint1"
+  class="article-card article-type-post" itemprop="blogPost">
 
+    <div class="post-meta">
+        <time class="post-time" title="2019-09-29 10:49:00" datetime="2019-09-29T02:49:00.000Z"  itemprop="datePublished">2019-09-29</time>
 
-
-
-    <!-- Date & Category -->
-    <div class="card-footer post-entry-info text-gray">
-        <img class="author-thumb lazyload" data-src="/img/default_avatar.png" src="/img/suka-lazyload.gif" alt="GoodGuy's Avatar">
-        <time>2019-09-29</time>
         
-        
+
+
     </div>
 
-                </div>
-            
-        </div>
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/archives/Reprint1.html">【转载】ANDROID中调用文件管理器并返回选中文件的路径</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+            实际项目中经常需要调用文件管理器，选择下载路径或者上传的本地文件路径。今天就给大家做个demo示范该功能的实现过程。一、实现效果预览以下为三星S6的样机测试效果，当然不同手机调用后的效果不一样。二、代码实现布局文件很简单，就一个Button和TextView，这里不示范了，直接上实现代码：  1 package com.panhouye.selectfile;  2  3 impor...
+    
+
+        <a href="/archives/Reprint1.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
 </article>
 
-                    
-                
-                    
-                        
-    <script src="/lib/vanilla-lazyload/lazyload.min.js" async></script>
-
-<article class="post-entry container px-0 card">
-        <div class="columns col-gapless">
-            
-                <div class="column col-12">
-                    
-    <h2 class="h5 mb-0 card-header"><a class="card-title" href="/archives/tool2.html" rel="bookmark">【工具推荐】 神经卷积网络图片放大-waifu2x</a></h2>
-
-
-<p class="mb-0 card-body">
+        </li>
     
-        简介使用卷积神经网络对动漫风格的图片进行放大操作（支持照片），是一套自带像素填充与降噪的算...
-    <a href="/archives/tool2.html">阅读全文</a>
-</p>
+        <li class="post-list-item fade">
+            <article id="post-tool2"
+  class="article-card article-type-post" itemprop="blogPost">
 
+    <div class="post-meta">
+        <time class="post-time" title="2019-09-28 22:03:57" datetime="2019-09-28T14:03:57.688Z"  itemprop="datePublished">2019-09-28</time>
 
-
-
-    <!-- Date & Category -->
-    <div class="card-footer post-entry-info text-gray">
-        <img class="author-thumb lazyload" data-src="/img/default_avatar.png" src="/img/suka-lazyload.gif" alt="GoodGuy's Avatar">
-        <time>2019-09-28</time>
         
-        
+
+
     </div>
 
-                </div>
-            
-        </div>
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/archives/tool2.html">【工具推荐】 神经卷积网络图片放大-waifu2x</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        简介使用卷积神经网络对动漫风格的图片进行放大操作（支持照片），是一套自带像素填充与降噪的算法。
+目前拥有多个版本在线网页版本：http://waifu2x.udp.jp/Git站caffe版本源码：https://github.com/lltcggie/waifu2x-caffe
+waifu2x同时支持CUAD cuDNN 和CPU多个模式
+影响目前二次元界最好用的图片黑科技之一，可以结合V...
+    
+
+        <a href="/archives/tool2.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
 </article>
 
-                    
-                
-                    
-                        
-    <script src="/lib/vanilla-lazyload/lazyload.min.js" async></script>
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-skill2"
+  class="article-card article-type-post" itemprop="blogPost">
 
-<article class="post-entry container px-0 card">
-        <div class="columns col-gapless">
-            
-                <div class="column col-12">
-                    
-    <h2 class="h5 mb-0 card-header"><a class="card-title" href="/archives/skill2.html" rel="bookmark">如何不使用第三方的情况下解决bilibili客户端离线下载新番版权受限问题</a></h2>
+    <div class="post-meta">
+        <time class="post-time" title="2019-09-28 22:03:57" datetime="2019-09-28T14:03:57.678Z"  itemprop="datePublished">2019-09-28</time>
+
+        
 
 
-<p class="mb-0 card-body">
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/archives/skill2.html">如何不使用第三方的情况下解决bilibili客户端离线下载新番版权受限问题</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
     
         
 前言
-哔哩哔哩（B站）是众所周知的 ACG 二刺螈
-    <a href="/archives/skill2.html">阅读全文</a>
-</p>
+哔哩哔哩（B站）是众所周知的 ACG 二刺螈 网站
+由于大版权时代的来临，连部分有版权的新番也无法离线下载
+在这里写出如何不使用第三方插件或解析软件的前提下进行离线
 
 
+原理：利用不同地区的版权限制使用VPN或SS代理获得离线权
+优点：
+不需要第三方插件或解析软件，直接通过B站官方客户端下载
+与此同时bilime之类的解析软件长时间不更新而失效
+开启VPN加入到下载列表后可以退出代理...
+    
 
-
-    <!-- Date & Category -->
-    <div class="card-footer post-entry-info text-gray">
-        <img class="author-thumb lazyload" data-src="/img/default_avatar.png" src="/img/suka-lazyload.gif" alt="GoodGuy's Avatar">
-        <time>2019-09-28</time>
-        
-        
+        <a href="/archives/skill2.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
     </div>
-
-                </div>
-            
-        </div>
+    
 </article>
 
-                    
-                
-                    
-                        
-    <script src="/lib/vanilla-lazyload/lazyload.min.js" async></script>
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-skill3"
+  class="article-card article-type-post" itemprop="blogPost">
 
-<article class="post-entry container px-0 card">
-        <div class="columns col-gapless">
-            
-                <div class="column col-12">
-                    
-    <h2 class="h5 mb-0 card-header"><a class="card-title" href="/archives/skill3.html" rel="bookmark">神舟Z8-SP7D1拆机换网卡以及硅脂</a></h2>
+    <div class="post-meta">
+        <time class="post-time" title="2019-09-28 22:03:57" datetime="2019-09-28T14:03:57.678Z"  itemprop="datePublished">2019-09-28</time>
+
+        
 
 
-<p class="mb-0 card-body">
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/archives/skill3.html">神舟Z8-SP7D1拆机换网卡以及硅脂</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
     
         
 前言
 神舟Z8-SP7D1是蓝天的P650RS模具
-...
-    <a href="/archives/skill3.html">阅读全文</a>
-</p>
+散热模块采用三风扇+5热管的组合，但是由于较薄，散热一般
+神舟一贯作风便是缩水网卡屏幕，以及原厂硅脂涂抹比较玄学（瞎涂）
 
 
-
-
-    <!-- Date & Category -->
-    <div class="card-footer post-entry-info text-gray">
-        <img class="author-thumb lazyload" data-src="/img/default_avatar.png" src="/img/suka-lazyload.gif" alt="GoodGuy's Avatar">
-        <time>2019-09-28</time>
-        
-        
-    </div>
-
-                </div>
-            
-        </div>
-</article>
-
-                    
-                
-                    
-                        
-    <script src="/lib/vanilla-lazyload/lazyload.min.js" async></script>
-
-<article class="post-entry container px-0 card">
-        <div class="columns col-gapless">
-            
-                <div class="column col-12">
-                    
-    <h2 class="h5 mb-0 card-header"><a class="card-title" href="/archives/tool1.html" rel="bookmark">【工具推荐】 音视频压制处理软件-小丸工具箱</a></h2>
-
-
-<p class="mb-0 card-body">
+吐槽：z8采用的无线网卡是M2接口的英特尔3165AC网卡，自带蓝牙4.0，支持双频但是信号质量一般而且最高速度只有433Mbps，天线实际利用是1x1(因此虽然有俩天线但有一根天线是备用摆设)。
+换网卡：网卡由于...
     
-        简介小丸工具箱是一款用于处理音视频等多媒体文件的软件。是一款x264、ffmpeg等命令行...
-    <a href="/archives/tool1.html">阅读全文</a>
-</p>
 
-
-
-
-    <!-- Date & Category -->
-    <div class="card-footer post-entry-info text-gray">
-        <img class="author-thumb lazyload" data-src="/img/default_avatar.png" src="/img/suka-lazyload.gif" alt="GoodGuy's Avatar">
-        <time>2019-09-28</time>
-        
-        
+        <a href="/archives/skill3.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
     </div>
-
-                </div>
-            
-        </div>
+    
 </article>
 
-                    
-                
-                    
-                        
-    <script src="/lib/vanilla-lazyload/lazyload.min.js" async></script>
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-evaluation1"
+  class="article-card article-type-post" itemprop="blogPost">
 
-<article class="post-entry container px-0 card">
-        <div class="columns col-gapless">
-            
-                <div class="column col-12">
-                    
-    <h2 class="h5 mb-0 card-header"><a class="card-title" href="/archives/evaluation1.html" rel="bookmark">六百块钱买的松人显示器质量如何</a></h2>
+    <div class="post-meta">
+        <time class="post-time" title="2019-09-28 22:03:57" datetime="2019-09-28T14:03:57.668Z"  itemprop="datePublished">2019-09-28</time>
+
+        
 
 
-<p class="mb-0 card-body">
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/archives/evaluation1.html">六百块钱买的松人显示器质量如何</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
     
         
-前言
-    <a href="/archives/evaluation1.html">阅读全文</a>
-</p>
-
-
-
-
-    <!-- Date & Category -->
-    <div class="card-footer post-entry-info text-gray">
-        <img class="author-thumb lazyload" data-src="/img/default_avatar.png" src="/img/suka-lazyload.gif" alt="GoodGuy's Avatar">
-        <time>2019-09-28</time>
-        
-        
-    </div>
-
-                </div>
-            
-        </div>
-</article>
-
-                    
+前言[
                 
                     
-                        
-    <script src="/lib/vanilla-lazyload/lazyload.min.js" async></script>
-
-<article class="post-entry container px-0 card">
-        <div class="columns col-gapless">
-            
-                <div class="column col-12">
                     
-    <h2 class="h5 mb-0 card-header"><a class="card-title" href="/archives/skill1.html" rel="bookmark">记一次 魅族路由器极速版 刷Padavan固件经历</a></h2>
+                
+                9ujrNj.md.jpg](https://s1.ax1x.com/2018/02/05/9ujrNj.md.jpg)
+            
+
+一般IPS显示器24寸都要1000+
+松人作为国产...
+    
+
+        <a href="/archives/evaluation1.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-skill1"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2019-09-28 22:03:57" datetime="2019-09-28T14:03:57.668Z"  itemprop="datePublished">2019-09-28</time>
+
+        
 
 
-<p class="mb-0 card-body">
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/archives/skill1.html">记一次 魅族路由器极速版 刷Padavan固件经历</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
     
         
 前言
-魅族路由器不同于小米路由器或是极路由以及newifi之类...
-    <a href="/archives/skill1.html">阅读全文</a>
-</p>
+魅族路由器不同于小米路由器或是极路由以及newifi之类的热门路由。
+网络上关于魅族路由器极速版的刷机教程凤毛麟角，可以说是几乎没有。
+前不久好不容易找到关于魅族路由器极速版刷Padavan的方法，于是乎记录下来。
 
 
+所需文件地址：Padavan固件：https://coding.net/u/c0ding/p/p4davan-fw/git/raw/master/down/rom/M...
+    
 
-
-    <!-- Date & Category -->
-    <div class="card-footer post-entry-info text-gray">
-        <img class="author-thumb lazyload" data-src="/img/default_avatar.png" src="/img/suka-lazyload.gif" alt="GoodGuy's Avatar">
-        <time>2019-09-28</time>
-        
-        
+        <a href="/archives/skill1.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
     </div>
-
-                </div>
-            
-        </div>
+    
 </article>
 
-                    
-                
-                    
-                        
-    <script src="/lib/vanilla-lazyload/lazyload.min.js" async></script>
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-tool1"
+  class="article-card article-type-post" itemprop="blogPost">
 
-<article class="post-entry container px-0 card">
-        <div class="columns col-gapless">
-            
-                <div class="column col-12">
-                    
-    <h2 class="h5 mb-0 card-header"><a class="card-title" href="/archives/tool3.html" rel="bookmark">【工具推荐】 RPG Maker MV</a></h2>
+    <div class="post-meta">
+        <time class="post-time" title="2019-09-28 22:03:00" datetime="2019-09-28T14:03:00.000Z"  itemprop="datePublished">2019-09-28</time>
+
+        
 
 
-<p class="mb-0 card-body">
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/archives/tool1.html">【工具推荐】 音视频压制处理软件-小丸工具箱</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        简介小丸工具箱是一款用于处理音视频等多媒体文件的软件。是一款x264、ffmpeg等命令行程序的图形界面。它的目标是让视频压制变得简单、轻松。
+主要功能高质量的H264+AAC视频压制（同时也支持实验性的h265编码）ASS/SRT字幕内嵌到视频AAC/WAV/FLAC/ALAC音频转换MP4/MKV/FLV的无损抽取和封装官网：http://maruko.appinn.me/
+
+     ...
+    
+
+        <a href="/archives/tool1.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-tool3"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2019-09-28 22:03:00" datetime="2019-09-28T14:03:00.000Z"  itemprop="datePublished">2019-09-28</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/archives/tool3.html">【工具推荐】 RPG Maker MV</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
     
         简介
-    <a href="/archives/tool3.html">阅读全文</a>
+RPG Maker MV 是专为制作角色扮演游戏而生的制作工具。本作的游戏将输出为 HTML5 格式，使用这一格式，完成的游戏将可以发布在 Windows、Mac OS X、安卓、iOS平台，甚至作为网页游戏在线发布。汉化中文帮助文档 http://help.rpgmakermv.cn/
+
+                
+                    
+          ...
+    
+
+        <a href="/archives/tool3.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+</article>
+
+        </li>
+    
+    </ul>
+
+    
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
 </p>
 
 
-
-
-    <!-- Date & Category -->
-    <div class="card-footer post-entry-info text-gray">
-        <img class="author-thumb lazyload" data-src="/img/default_avatar.png" src="/img/suka-lazyload.gif" alt="GoodGuy's Avatar">
-        <time>2019-09-28</time>
-        
-        
-    </div>
-
-                </div>
+        <p>
             
-        </div>
-</article>
-
-                    
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>GoodGuy &copy; 2017 - 2019</span>
+            <span>
                 
-            </div>
-        </main>
-        
-
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
     </div>
-</div>
-
-            <!-- ### Footer ### -->
-            <footer class="text-center">
-    <!-- footer copyright -->
-    <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span data-year></span>
-        <a class="footer-copyright-a" href="http://yoursite.com">GoodGuy&#39;blog</a>
-    </p>
-    <!-- footer custom text -->
-    <p class="footer-text mb-0">
-    
-    </p>
-    <!-- footer develop info -->
-    <p class="footer-develop mb-0">
-        
-            
-    <!-- Busuanzi User Views -->
-    <span id="busuanzi_container_site_uv" hidden>
-        <span></span>
-        <span id="busuanzi_value_site_uv"></span>
-        <span>Viewers</span>
-        
-            <span>|</span>
-        
-    </span>
-
-
-
-        
-        
-        Powered by&nbsp;<!--
-         --><a href="https://hexo.io" target="_blank" class="footer-develop-a" rel="external nofollow noopener noreferrer">Hexo</a><span class="footer-develop-divider"></span>Theme&nbsp;-&nbsp;<!--
-         --><a href="https://github.com/SukkaW/hexo-theme-suka" target="_blank" class="footer-develop-a" rel="external noopener">Suka</a>
-    </p>
 </footer>
 
-        
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
 
-        <!-- ### Import File ### -->
-        <!-- ### Footer JS Import ### -->
 
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://goodguy.cc/&title=GoodGuy'blog&pic=http://goodguy.cc/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://goodguy.cc/&title=GoodGuy'blog&source=低调做人,低调做事.咸鱼虽寿,犹有竟时." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://goodguy.cc/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=GoodGuy'blog&url=http://goodguy.cc/&via=http://goodguy.cc" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://goodguy.cc/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAACWCAAAAAAZai4+AAABU0lEQVR42u3aQQ7DIAwF0dz/0nTbRYPmG1IpeLyqqgheFgFsc104xlfM/x83cT0RsmQdxBrTmE/Px+dzyZLVmUWGS5/nLyNLlqyURTbpdFmRJUtWjZVyZcmSRVjk0Jyi/3SWlyXrCFYtBa39fqS+JUvWy1kjjHl5tzbmj1lkyWrG4h/wynaeji9LVk8WaWTWlgDeCkVJrCxZh7LIpkuuEZC3L5aQZMlqwEqblOR5Unjis8iS1Y2VFoPidHSlwCRLVgMW/3R5U4QnurdQWbJasmqdmaUm5XyZkCVL1kJSStowqFUjS1ZLFj+vkpSVN1SCno8sWYeyilcBcPqalqVkyerJWr8Xt761b7gbKEvWEaz0Wk9t205fRpasnqy9jZYN5SRZsmQtX9x5pM0pS5assNnJE9rN65YsWS9npQPx4m+xUSpLVjNW7VBbS3GvvSFL1gmsD91bVOxk6z8fAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
 <script>
-window.lazyLoadOptions = {
-    elements_selector: ".lazyload",
-    threshold: 50
-};
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
 
 
-
-    /* Copyright */
-    var copyrightNow = new Date().getFullYear();
-    var copyrightContent = document.querySelector('span[data-year]')
-    
-        copyrightContent.textContent = copyrightNow
-    
-
-
-
-/* Cnosole Log */
-console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.3 %c https://github.com/SukkaW/hexo-theme-suka \n', 'color: #fff; background: #444; padding:5px 0;', 'background: #bbb; padding:5px 0;');
 </script>
 
-<!-- vanilla-lazyload -->
-
-    <script src="/lib/vanilla-lazyload/lazyload.min.js" async></script>
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
 
 
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
 
-    <!-- Busuanzi -->
-    
-    <script src="https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.js" async></script>
-
-
-<!-- Offset -->
-
-
-
-
-
-
-
-<!-- gallery.js -->
-
-
-<!-- Comment -->
-
-
-<!-- ### Custom Footer ### -->
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
 
 
-    </body>
 
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
 </html>

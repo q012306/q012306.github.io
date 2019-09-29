@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>【转载】ANDROID中调用文件管理器并返回选中文件的路径 | GoodGuy&#39;blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content>
+    <meta name="description" content="实际项目中经常需要调用文件管理器，选择下载路径或者上传的本地文件路径。今天就给大家做个demo示范该功能的实现过程。一、实现效果预览以下为三星S6的样机测试效果，当然不同手机调用后的效果不一样。二、代码实现布局文件很简单，就一个Button和TextView，这里不示范了，直接上实现代码：  1 package com.panhouye.selectfile;  2  3 import a">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【转载】ANDROID中调用文件管理器并返回选中文件的路径">
+<meta property="og:url" content="http://goodguy.cc/archives/Reprint1.html">
+<meta property="og:site_name" content="GoodGuy&#39;blog">
+<meta property="og:description" content="实际项目中经常需要调用文件管理器，选择下载路径或者上传的本地文件路径。今天就给大家做个demo示范该功能的实现过程。一、实现效果预览以下为三星S6的样机测试效果，当然不同手机调用后的效果不一样。二、代码实现布局文件很简单，就一个Button和TextView，这里不示范了，直接上实现代码：  1 package com.panhouye.selectfile;  2  3 import a">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/1068139/201704/1068139-20170423095853116-868763186.gif">
+<meta property="og:updated_time" content="2019-09-29T10:36:10.522Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【转载】ANDROID中调用文件管理器并返回选中文件的路径">
+<meta name="twitter:description" content="实际项目中经常需要调用文件管理器，选择下载路径或者上传的本地文件路径。今天就给大家做个demo示范该功能的实现过程。一、实现效果预览以下为三星S6的样机测试效果，当然不同手机调用后的效果不一样。二、代码实现布局文件很简单，就一个Button和TextView，这里不示范了，直接上实现代码：  1 package com.panhouye.selectfile;  2  3 import a">
+<meta name="twitter:image" content="http://images2015.cnblogs.com/blog/1068139/201704/1068139-20170423095853116-868763186.gif">
+    
+        <link rel="alternate" type="application/atom+xml" title="GoodGuy&#39;blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">GoodGuy</h5>
+          <a href="mailto:2560861029@qq.com" title="2560861029@qq.com" class="mail">2560861029@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect active">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/q012306" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://weibo.com/3207855562" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-link"></i>
+                关于我
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">【转载】ANDROID中调用文件管理器并返回选中文件的路径</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">【转载】ANDROID中调用文件管理器并返回选中文件的路径</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-09-29T02:49:00.000Z" itemprop="datePublished" class="page-time">
+  2019-09-29
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#cnblogs_post_body"><span class="post-toc-number">1.</span> <span class="post-toc-text">一、实现效果预览</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#cnblogs_post_body"><span class="post-toc-number">2.</span> <span class="post-toc-text">二、代码实现</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#cnblogs_post_body"><span class="post-toc-number">3.</span> <span class="post-toc-text">三、小结</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-Reprint1"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">【转载】ANDROID中调用文件管理器并返回选中文件的路径</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-09-29 10:49:00" datetime="2019-09-29T02:49:00.000Z"  itemprop="datePublished">2019-09-29</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <div id="cnblogs_post_body" class="blogpost-body "><br>    <p>实际项目中经常需要调用文件管理器，选择下载路径或者上传的本地文件路径。今天就给大家做个demo示范该功能的实现过程。</p><br><h1>一、实现效果预览</h1><br><div>以下为三星S6的样机测试效果，当然不同手机调用后的效果不一样。</div><br><div><img src="http://images2015.cnblogs.com/blog/1068139/201704/1068139-20170423095853116-868763186.gif" alt align="left"></div><br><div><br><div><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></div><br><h1>二、代码实现</h1><br><div>布局文件很简单，就一个Button和TextView，这里不示范了，直接上实现代码：</div><br><div><br><div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"></span></div><br><pre><span style="color: #008080;">  1</span> <span style="color: #0000ff;">package</span><span style="color: #000000;"> com.panhouye.selectfile;<br></span><span style="color: #008080;">  2</span><br><span style="color: #008080;">  3</span> <span style="color: #0000ff;">import</span><span style="color: #000000;"> android.annotation.SuppressLint;<br></span><span style="color: #008080;">  4</span> <span style="color: #0000ff;">import</span><span style="color: #000000;"> android.app.Activity;<br></span><span style="color: #008080;">  5</span> <span style="color: #0000ff;">import</span><span style="color: #000000;"> android.content.ContentUris;<br></span><span style="color: #008080;">  6</span> <span style="color: #0000ff;">import</span><span style="color: #000000;"> android.content.Context;<br></span><span style="color: #008080;">  7</span> <span style="color: #0000ff;">import</span><span style="color: #000000;"> android.content.Intent;<br></span><span style="color: #008080;">  8</span> <span style="color: #0000ff;">import</span><span style="color: #000000;"> android.database.Cursor;<br></span><span style="color: #008080;">  9</span> <span style="color: #0000ff;">import</span><span style="color: #000000;"> android.net.Uri;<br></span><span style="color: #008080;"> 10</span> <span style="color: #0000ff;">import</span><span style="color: #000000;"> android.os.Build;<br></span><span style="color: #008080;"> 11</span> <span style="color: #0000ff;">import</span><span style="color: #000000;"> android.os.Bundle;<br></span><span style="color: #008080;"> 12</span> <span style="color: #0000ff;">import</span><span style="color: #000000;"> android.os.Environment;<br></span><span style="color: #008080;"> 13</span> <span style="color: #0000ff;">import</span><span style="color: #000000;"> android.provider.DocumentsContract;<br></span><span style="color: #008080;"> 14</span> <span style="color: #0000ff;">import</span><span style="color: #000000;"> android.provider.MediaStore;<br></span><span style="color: #008080;"> 15</span> <span style="color: #0000ff;">import</span><span style="color: #000000;"> android.support.v7.app.AppCompatActivity;<br></span><span style="color: #008080;"> 16</span> <span style="color: #0000ff;">import</span><span style="color: #000000;"> android.view.View;<br></span><span style="color: #008080;"> 17</span> <span style="color: #0000ff;">import</span><span style="color: #000000;"> android.widget.Button;<br></span><span style="color: #008080;"> 18</span> <span style="color: #0000ff;">import</span><span style="color: #000000;"> android.widget.TextView;<br></span><span style="color: #008080;"> 19</span> <span style="color: #0000ff;">import</span><span style="color: #000000;"> android.widget.Toast;<br></span><span style="color: #008080;"> 20</span><br><span style="color: #008080;"> 21</span> <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">class</span> MainActivity <span style="color: #0000ff;">extends</span><span style="color: #000000;"> AppCompatActivity {<br></span><span style="color: #008080;"> 22</span> <span style="color: #000000;">    TextView tv;<br></span><span style="color: #008080;"> 23</span> <span style="color: #000000;">    @Override<br></span><span style="color: #008080;"> 24</span>     <span style="color: #0000ff;">protected</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> onCreate(Bundle savedInstanceState) {<br></span><span style="color: #008080;"> 25</span>         <span style="color: #0000ff;">super</span><span style="color: #000000;">.onCreate(savedInstanceState);<br></span><span style="color: #008080;"> 26</span> <span style="color: #000000;">        setContentView(R.layout.activity_main);<br></span><span style="color: #008080;"> 27</span>         Button btn =<span style="color: #000000;"> (Button) findViewById(R.id.btn);<br></span><span style="color: #008080;"> 28</span>         tv =<span style="color: #000000;"> (TextView) findViewById(R.id.tv);<br></span><span style="color: #008080;"> 29</span>         btn.setOnClickListener(<span style="color: #0000ff;">new</span><span style="color: #000000;"> View.OnClickListener() {<br></span><span style="color: #008080;"> 30</span> <span style="color: #000000;">            @Override<br></span><span style="color: #008080;"> 31</span>             <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> onClick(View v) {<br></span><span style="color: #008080;"> 32</span>                 Intent intent = <span style="color: #0000ff;">new</span><span style="color: #000000;"> Intent(Intent.ACTION_GET_CONTENT);<br></span><span style="color: #008080;"> 33</span>                 <span style="color: #008000;">//</span><span style="color: #008000;">intent.setType(“image/<em>”);</em></span><span style="color: #008000;">//</span><span style="color: #008000;">选择图片<br></span><span style="color: #008080;"> 34</span>                 <span style="color: #008000;">//</span><span style="color: #008000;">intent.setType(“audio/”); </span><span style="color: #008000;">//</span><span style="color: #008000;">选择音频<br></span><span style="color: #008080;"> 35</span>                 <span style="color: #008000;">//</span><span style="color: #008000;">intent.setType(“video/<em>”); </em></span><span style="color: #008000;">//</span><span style="color: #008000;">选择视频 （mp4 3gp 是android支持的视频格式）<br></span><span style="color: #008080;"> 36</span>                 <span style="color: #008000;">//</span><span style="color: #008000;">intent.setType(“video/;image/<em>”);</em></span><span style="color: #008000;">//</span><span style="color: #008000;">同时选择视频和图片</span><br><span style="color: #008080;"> 37</span>                 intent.setType(“/<em>“);<span style="color: #008000;">//</span><span style="color: #008000;">无类型限制</span><br><span style="color: #008080;"> 38</span> <span style="color: #000000;">                intent.addCategory(Intent.CATEGORY_OPENABLE);<br></span><span style="color: #008080;"> 39</span>                 startActivityForResult(intent, 1<span style="color: #000000;">);<br></span><span style="color: #008080;"> 40</span> <span style="color: #000000;">            }<br></span><span style="color: #008080;"> 41</span> <span style="color: #000000;">        });<br></span><span style="color: #008080;"> 42</span> <span style="color: #000000;">    }<br></span><span style="color: #008080;"> 43</span> <span style="color: #000000;">    String path;<br></span><span style="color: #008080;"> 44</span> <span style="color: #000000;">    @Override<br></span><span style="color: #008080;"> 45</span>     <span style="color: #0000ff;">protected</span> <span style="color: #0000ff;">void</span> onActivityResult(<span style="color: #0000ff;">int</span> requestCode, <span style="color: #0000ff;">int</span><span style="color: #000000;"> resultCode, Intent data) {<br></span><span style="color: #008080;"> 46</span>         <span style="color: #0000ff;">if</span> (resultCode ==<span style="color: #000000;"> Activity.RESULT_OK) {<br></span><span style="color: #008080;"> 47</span>             Uri uri =<span style="color: #000000;"> data.getData();<br></span><span style="color: #008080;"> 48</span>             <span style="color: #0000ff;">if</span> (“file”.equalsIgnoreCase(uri.getScheme())){<span style="color: #008000;">//</span><span style="color: #008000;">使用第三方应用打开</span><br><span style="color: #008080;"> 49</span>                 path =<span style="color: #000000;"> uri.getPath();<br></span><span style="color: #008080;"> 50</span> <span style="color: #000000;">                tv.setText(path);<br></span><span style="color: #008080;"> 51</span>                 Toast.makeText(<span style="color: #0000ff;">this</span>,path+”11111”<span style="color: #000000;">,Toast.LENGTH_SHORT).show();<br></span><span style="color: #008080;"> 52</span>                 <span style="color: #0000ff;">return</span><span style="color: #000000;">;<br></span><span style="color: #008080;"> 53</span> <span style="color: #000000;">            }<br></span><span style="color: #008080;"> 54</span>             <span style="color: #0000ff;">if</span> (Build.VERSION.SDK_INT &gt; Build.VERSION_CODES.KITKAT) {<span style="color: #008000;">//</span><span style="color: #008000;">4.4以后</span><br><span style="color: #008080;"> 55</span>                 path = getPath(<span style="color: #0000ff;">this</span><span style="color: #000000;">, uri);<br></span><span style="color: #008080;"> 56</span> <span style="color: #000000;">                tv.setText(path);<br></span><span style="color: #008080;"> 57</span>                 Toast.makeText(<span style="color: #0000ff;">this</span><span style="color: #000000;">,path,Toast.LENGTH_SHORT).show();<br></span><span style="color: #008080;"> 58</span>             } <span style="color: #0000ff;">else</span> {<span style="color: #008000;">//</span><span style="color: #008000;">4.4以下下系统调用方法</span><br><span style="color: #008080;"> 59</span>                 path =<span style="color: #000000;"> getRealPathFromURI(uri);<br></span><span style="color: #008080;"> 60</span> <span style="color: #000000;">                tv.setText(path);<br></span><span style="color: #008080;"> 61</span>                 Toast.makeText(MainActivity.<span style="color: #0000ff;">this</span>, path+”222222”<span style="color: #000000;">, Toast.LENGTH_SHORT).show();<br></span><span style="color: #008080;"> 62</span> <span style="color: #000000;">            }<br></span><span style="color: #008080;"> 63</span> <span style="color: #000000;">        }<br></span><span style="color: #008080;"> 64</span> <span style="color: #000000;">    }<br></span><span style="color: #008080;"> 65</span><br><span style="color: #008080;"> 66</span>     <span style="color: #0000ff;">public</span><span style="color: #000000;"> String getRealPathFromURI(Uri contentUri) {<br></span><span style="color: #008080;"> 67</span>         String res = <span style="color: #0000ff;">null</span><span style="color: #000000;">;<br></span><span style="color: #008080;"> 68</span>         String[] proj =<span style="color: #000000;"> { MediaStore.Images.Media.DATA };<br></span><span style="color: #008080;"> 69</span>         Cursor cursor = getContentResolver().query(contentUri, proj, <span style="color: #0000ff;">null</span>, <span style="color: #0000ff;">null</span>, <span style="color: #0000ff;">null</span><span style="color: #000000;">);<br></span><span style="color: #008080;"> 70</span>         <span style="color: #0000ff;">if</span>(<span style="color: #0000ff;">null</span>!=cursor&amp;&amp;<span style="color: #000000;">cursor.moveToFirst()){;<br></span><span style="color: #008080;"> 71</span>             <span style="color: #0000ff;">int</span> column_index =<span style="color: #000000;"> cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);<br></span><span style="color: #008080;"> 72</span>             res =<span style="color: #000000;"> cursor.getString(column_index);<br></span><span style="color: #008080;"> 73</span> <span style="color: #000000;">            cursor.close();<br></span><span style="color: #008080;"> 74</span> <span style="color: #000000;">        }<br></span><span style="color: #008080;"> 75</span>         <span style="color: #0000ff;">return</span><span style="color: #000000;"> res;<br></span><span style="color: #008080;"> 76</span> <span style="color: #000000;">    }<br></span><span style="color: #008080;"> 77</span><br><span style="color: #008080;"> 78</span>     <span style="color: #008000;">/**</span><br><span style="color: #008080;"> 79</span> <span style="color: #008000;">     </span></em> 专为Android4.4设计的从Uri获取文件绝对路径，以前的方法已不好使<br><span style="color: #008080;"> 80</span>      <span style="color: #008000;"><em>/</em></span><br><span style="color: #008080;"> 81</span>     @SuppressLint(“NewApi”<span style="color: #000000;">)<br></span><span style="color: #008080;"> 82</span>     <span style="color: #0000ff;">public</span> String getPath(<span style="color: #0000ff;">final</span> Context context, <span style="color: #0000ff;">final</span><span style="color: #000000;"> Uri uri) {<br></span><span style="color: #008080;"> 83</span><br><span style="color: #008080;"> 84</span>         <span style="color: #0000ff;">final</span> <span style="color: #0000ff;">boolean</span> isKitKat = Build.VERSION.SDK_INT &gt;=<span style="color: #000000;"> Build.VERSION_CODES.KITKAT;<br></span><span style="color: #008080;"> 85</span><br><span style="color: #008080;"> 86</span>         <span style="color: #008000;">//</span><span style="color: #008000;"> DocumentProvider</span><br><span style="color: #008080;"> 87</span>         <span style="color: #0000ff;">if</span> (isKitKat &amp;&amp;<span style="color: #000000;"> DocumentsContract.isDocumentUri(context, uri)) {<br></span><span style="color: #008080;"> 88</span>             <span style="color: #008000;">//</span><span style="color: #008000;"> ExternalStorageProvider</span><br><span style="color: #008080;"> 89</span>             <span style="color: #0000ff;">if</span><span style="color: #000000;"> (isExternalStorageDocument(uri)) {<br></span><span style="color: #008080;"> 90</span>                 <span style="color: #0000ff;">final</span> String docId =<span style="color: #000000;"> DocumentsContract.getDocumentId(uri);<br></span><span style="color: #008080;"> 91</span>                 <span style="color: #0000ff;">final</span> String[] split = docId.split(“:”<span style="color: #000000;">);<br></span><span style="color: #008080;"> 92</span>                 <span style="color: #0000ff;">final</span> String type = split[0<span style="color: #000000;">];<br></span><span style="color: #008080;"> 93</span><br><span style="color: #008080;"> 94</span>                 <span style="color: #0000ff;">if</span> (“primary”<span style="color: #000000;">.equalsIgnoreCase(type)) {<br></span><span style="color: #008080;"> 95</span>                     <span style="color: #0000ff;">return</span> Environment.getExternalStorageDirectory() + “/“ + split[1<span style="color: #000000;">];<br></span><span style="color: #008080;"> 96</span> <span style="color: #000000;">                }<br></span><span style="color: #008080;"> 97</span> <span style="color: #000000;">            }<br></span><span style="color: #008080;"> 98</span>             <span style="color: #008000;">//</span><span style="color: #008000;"> DownloadsProvider</span><br><span style="color: #008080;"> 99</span>             <span style="color: #0000ff;">else</span> <span style="color: #0000ff;">if</span><span style="color: #000000;"> (isDownloadsDocument(uri)) {<br></span><span style="color: #008080;">100</span><br><span style="color: #008080;">101</span>                 <span style="color: #0000ff;">final</span> String id =<span style="color: #000000;"> DocumentsContract.getDocumentId(uri);<br></span><span style="color: #008080;">102</span>                 <span style="color: #0000ff;">final</span> Uri contentUri =<span style="color: #000000;"> ContentUris.withAppendedId(<br></span><span style="color: #008080;">103</span>                         Uri.parse(“content://downloads/public_downloads”<span style="color: #000000;">), Long.valueOf(id));<br></span><span style="color: #008080;">104</span><br><span style="color: #008080;">105</span>                 <span style="color: #0000ff;">return</span> getDataColumn(context, contentUri, <span style="color: #0000ff;">null</span>, <span style="color: #0000ff;">null</span><span style="color: #000000;">);<br></span><span style="color: #008080;">106</span> <span style="color: #000000;">            }<br></span><span style="color: #008080;">107</span>             <span style="color: #008000;">//</span><span style="color: #008000;"> MediaProvider</span><br><span style="color: #008080;">108</span>             <span style="color: #0000ff;">else</span> <span style="color: #0000ff;">if</span><span style="color: #000000;"> (isMediaDocument(uri)) {<br></span><span style="color: #008080;">109</span>                 <span style="color: #0000ff;">final</span> String docId =<span style="color: #000000;"> DocumentsContract.getDocumentId(uri);<br></span><span style="color: #008080;">110</span>                 <span style="color: #0000ff;">final</span> String[] split = docId.split(“:”<span style="color: #000000;">);<br></span><span style="color: #008080;">111</span>                 <span style="color: #0000ff;">final</span> String type = split[0<span style="color: #000000;">];<br></span><span style="color: #008080;">112</span><br><span style="color: #008080;">113</span>                 Uri contentUri = <span style="color: #0000ff;">null</span><span style="color: #000000;">;<br></span><span style="color: #008080;">114</span>                 <span style="color: #0000ff;">if</span> (“image”<span style="color: #000000;">.equals(type)) {<br></span><span style="color: #008080;">115</span>                     contentUri =<span style="color: #000000;"> MediaStore.Images.Media.EXTERNAL_CONTENT_URI;<br></span><span style="color: #008080;">116</span>                 } <span style="color: #0000ff;">else</span> <span style="color: #0000ff;">if</span> (“video”<span style="color: #000000;">.equals(type)) {<br></span><span style="color: #008080;">117</span>                     contentUri =<span style="color: #000000;"> MediaStore.Video.Media.EXTERNAL_CONTENT_URI;<br></span><span style="color: #008080;">118</span>                 } <span style="color: #0000ff;">else</span> <span style="color: #0000ff;">if</span> (“audio”<span style="color: #000000;">.equals(type)) {<br></span><span style="color: #008080;">119</span>                     contentUri =<span style="color: #000000;"> MediaStore.Audio.Media.EXTERNAL_CONTENT_URI;<br></span><span style="color: #008080;">120</span> <span style="color: #000000;">                }<br></span><span style="color: #008080;">121</span><br><span style="color: #008080;">122</span>                 <span style="color: #0000ff;">final</span> String selection = “_id=?”<span style="color: #000000;">;<br></span><span style="color: #008080;">123</span>                 <span style="color: #0000ff;">final</span> String[] selectionArgs = <span style="color: #0000ff;">new</span> String[]{split[1<span style="color: #000000;">]};<br></span><span style="color: #008080;">124</span><br><span style="color: #008080;">125</span>                 <span style="color: #0000ff;">return</span><span style="color: #000000;"> getDataColumn(context, contentUri, selection, selectionArgs);<br></span><span style="color: #008080;">126</span> <span style="color: #000000;">            }<br></span><span style="color: #008080;">127</span> <span style="color: #000000;">        }<br></span><span style="color: #008080;">128</span>         <span style="color: #008000;">//</span><span style="color: #008000;"> MediaStore (and general)</span><br><span style="color: #008080;">129</span>         <span style="color: #0000ff;">else</span> <span style="color: #0000ff;">if</span> (“content”<span style="color: #000000;">.equalsIgnoreCase(uri.getScheme())) {<br></span><span style="color: #008080;">130</span>             <span style="color: #0000ff;">return</span> getDataColumn(context, uri, <span style="color: #0000ff;">null</span>, <span style="color: #0000ff;">null</span><span style="color: #000000;">);<br></span><span style="color: #008080;">131</span> <span style="color: #000000;">        }<br></span><span style="color: #008080;">132</span>         <span style="color: #008000;">//</span><span style="color: #008000;"> File</span><br><span style="color: #008080;">133</span>         <span style="color: #0000ff;">else</span> <span style="color: #0000ff;">if</span> (“file”<span style="color: #000000;">.equalsIgnoreCase(uri.getScheme())) {<br></span><span style="color: #008080;">134</span>             <span style="color: #0000ff;">return</span><span style="color: #000000;"> uri.getPath();<br></span><span style="color: #008080;">135</span> <span style="color: #000000;">        }<br></span><span style="color: #008080;">136</span>         <span style="color: #0000ff;">return</span> <span style="color: #0000ff;">null</span><span style="color: #000000;">;<br></span><span style="color: #008080;">137</span> <span style="color: #000000;">    }<br></span><span style="color: #008080;">138</span><br><span style="color: #008080;">139</span>     <span style="color: #008000;">/**</span><br><span style="color: #008080;">140</span> <span style="color: #008000;">      Get the value of the data column for this Uri. This is useful for<br></span><span style="color: #008080;">141</span> <span style="color: #008000;">     <em> MediaStore Uris, and other file-based ContentProviders.<br></em></span><span style="color: #008080;">142</span> <span style="color: #008000;">     <br></span><span style="color: #008080;">143</span> <span style="color: #008000;">     <em> </em></span><span style="color: #808080;">@param</span><span style="color: #008000;"> context       The context.<br></span><span style="color: #008080;">144</span> <span style="color: #008000;">      </span><span style="color: #808080;">@param</span><span style="color: #008000;"> uri           The Uri to query.<br></span><span style="color: #008080;">145</span> <span style="color: #008000;">     <em> </em></span><span style="color: #808080;">@param</span><span style="color: #008000;"> selection     (Optional) Filter used in the query.<br></span><span style="color: #008080;">146</span> <span style="color: #008000;">      </span><span style="color: #808080;">@param</span><span style="color: #008000;"> selectionArgs (Optional) Selection arguments used in the query.<br></span><span style="color: #008080;">147</span> <span style="color: #008000;">     <em> </em></span><span style="color: #808080;">@return</span><span style="color: #008000;"> The value of the _data column, which is typically a file path.<br></span><span style="color: #008080;">148</span>      <span style="color: #008000;">/</span><br><span style="color: #008080;">149</span>     <span style="color: #0000ff;">public</span><span style="color: #000000;"> String getDataColumn(Context context, Uri uri, String selection,<br></span><span style="color: #008080;">150</span> <span style="color: #000000;">                                String[] selectionArgs) {<br></span><span style="color: #008080;">151</span><br><span style="color: #008080;">152</span>         Cursor cursor = <span style="color: #0000ff;">null</span><span style="color: #000000;">;<br></span><span style="color: #008080;">153</span>         <span style="color: #0000ff;">final</span> String column = “_data”<span style="color: #000000;">;<br></span><span style="color: #008080;">154</span>         <span style="color: #0000ff;">final</span> String[] projection =<span style="color: #000000;"> {column};<br></span><span style="color: #008080;">155</span><br><span style="color: #008080;">156</span>         <span style="color: #0000ff;">try</span><span style="color: #000000;"> {<br></span><span style="color: #008080;">157</span>             cursor =<span style="color: #000000;"> context.getContentResolver().query(uri, projection, selection, selectionArgs,<br></span><span style="color: #008080;">158</span>                     <span style="color: #0000ff;">null</span><span style="color: #000000;">);<br></span><span style="color: #008080;">159</span>             <span style="color: #0000ff;">if</span> (cursor != <span style="color: #0000ff;">null</span> &amp;&amp;<span style="color: #000000;"> cursor.moveToFirst()) {<br></span><span style="color: #008080;">160</span>                 <span style="color: #0000ff;">final</span> <span style="color: #0000ff;">int</span> column_index =<span style="color: #000000;"> cursor.getColumnIndexOrThrow(column);<br></span><span style="color: #008080;">161</span>                 <span style="color: #0000ff;">return</span><span style="color: #000000;"> cursor.getString(column_index);<br></span><span style="color: #008080;">162</span> <span style="color: #000000;">            }<br></span><span style="color: #008080;">163</span>         } <span style="color: #0000ff;">finally</span><span style="color: #000000;"> {<br></span><span style="color: #008080;">164</span>             <span style="color: #0000ff;">if</span> (cursor != <span style="color: #0000ff;">null</span><span style="color: #000000;">)<br></span><span style="color: #008080;">165</span> <span style="color: #000000;">                cursor.close();<br></span><span style="color: #008080;">166</span> <span style="color: #000000;">        }<br></span><span style="color: #008080;">167</span>         <span style="color: #0000ff;">return</span> <span style="color: #0000ff;">null</span><span style="color: #000000;">;<br></span><span style="color: #008080;">168</span> <span style="color: #000000;">    }<br></span><span style="color: #008080;">169</span><br><span style="color: #008080;">170</span>     <span style="color: #008000;">/<strong></strong></span><br><span style="color: #008080;">171</span> <span style="color: #008000;">     <em> </em></span><span style="color: #808080;">@param</span><span style="color: #008000;"> uri The Uri to check.<br></span><span style="color: #008080;">172</span> <span style="color: #008000;">      </span><span style="color: #808080;">@return</span><span style="color: #008000;"> Whether the Uri authority is ExternalStorageProvider.<br></span><span style="color: #008080;">173</span>      <span style="color: #008000;">*/</span><br><span style="color: #008080;">174</span>     <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">boolean</span><span style="color: #000000;"> isExternalStorageDocument(Uri uri) {<br></span><span style="color: #008080;">175</span>         <span style="color: #0000ff;">return</span> “com.android.externalstorage.documents”<span style="color: #000000;">.equals(uri.getAuthority());<br></span><span style="color: #008080;">176</span> <span style="color: #000000;">    }<br></span><span style="color: #008080;">177</span><br><span style="color: #008080;">178</span>     <span style="color: #008000;">/</span><br><span style="color: #008080;">179</span> <span style="color: #008000;">     <em> </em></span><span style="color: #808080;">@param</span><span style="color: #008000;"> uri The Uri to check.<br></span><span style="color: #008080;">180</span> <span style="color: #008000;">      </span><span style="color: #808080;">@return</span><span style="color: #008000;"> Whether the Uri authority is DownloadsProvider.<br></span><span style="color: #008080;">181</span>      <span style="color: #008000;"><em>/</em></span><br><span style="color: #008080;">182</span>     <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">boolean</span><span style="color: #000000;"> isDownloadsDocument(Uri uri) {<br></span><span style="color: #008080;">183</span>         <span style="color: #0000ff;">return</span> “com.android.providers.downloads.documents”<span style="color: #000000;">.equals(uri.getAuthority());<br></span><span style="color: #008080;">184</span> <span style="color: #000000;">    }<br></span><span style="color: #008080;">185</span><br><span style="color: #008080;">186</span>     <span style="color: #008000;">/**</span><br><span style="color: #008080;">187</span> <span style="color: #008000;">      </span><span style="color: #808080;">@param</span><span style="color: #008000;"> uri The Uri to check.<br></span><span style="color: #008080;">188</span> <span style="color: #008000;">     <em> </em></span><span style="color: #808080;">@return</span><span style="color: #008000;"> Whether the Uri authority is MediaProvider.<br></span><span style="color: #008080;">189</span>      <span style="color: #008000;">/</span><br><span style="color: #008080;">190</span>     <span style="color: #0000ff;">public</span> <span style="color: #0000ff;">boolean</span><span style="color: #000000;"> isMediaDocument(Uri uri) {<br></span><span style="color: #008080;">191</span>         <span style="color: #0000ff;">return</span> “com.android.providers.media.documents”<span style="color: #000000;">.equals(uri.getAuthority());<br></span><span style="color: #008080;">192</span> <span style="color: #000000;">    }<br></span><span style="color: #008080;">193</span> }</pre><br><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"></span></div></div><br><h1>三、小结</h1><br><div>这是调用系统自带的文件管理，无法保证和控制统一的界面显示，所以大家还是要实现与自己APP统一的文件管理界面，共勉。</div><br></div><br></div><br></div>
+
+<p>原文地址：HTTP://WWW.CNBLOGS.COM/PANHOUYE/ARCHIVE/2017/04/23/6751710.HTML</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-09-29T10:36:10.522Z" itemprop="dateUpdated">2019-09-29 18:36:10</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/archives/Reprint1.html" target="_blank" rel="external">http://goodguy.cc/archives/Reprint1.html</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://goodguy.cc">
+            <img src="/img/avatar.jpg" alt="GoodGuy">
+            GoodGuy
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://goodguy.cc/archives/Reprint1.html&title=《【转载】ANDROID中调用文件管理器并返回选中文件的路径》 — GoodGuy'blog&pic=http://goodguy.cc/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://goodguy.cc/archives/Reprint1.html&title=《【转载】ANDROID中调用文件管理器并返回选中文件的路径》 — GoodGuy'blog&source=低调做人,低调做事.咸鱼虽寿,犹有竟时." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://goodguy.cc/archives/Reprint1.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《【转载】ANDROID中调用文件管理器并返回选中文件的路径》 — GoodGuy'blog&url=http://goodguy.cc/archives/Reprint1.html&via=http://goodguy.cc" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://goodguy.cc/archives/Reprint1.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/archives/tool2.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">【工具推荐】 神经卷积网络图片放大-waifu2x</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>GoodGuy &copy; 2017 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://goodguy.cc/archives/Reprint1.html&title=《【转载】ANDROID中调用文件管理器并返回选中文件的路径》 — GoodGuy'blog&pic=http://goodguy.cc/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://goodguy.cc/archives/Reprint1.html&title=《【转载】ANDROID中调用文件管理器并返回选中文件的路径》 — GoodGuy'blog&source=低调做人,低调做事.咸鱼虽寿,犹有竟时." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://goodguy.cc/archives/Reprint1.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《【转载】ANDROID中调用文件管理器并返回选中文件的路径》 — GoodGuy'blog&url=http://goodguy.cc/archives/Reprint1.html&via=http://goodguy.cc" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://goodguy.cc/archives/Reprint1.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABxElEQVR42u3aQY6DMAwF0N7/0h1pth2YbzsEKr2skNrCowsr9s/rFa/37/q8Pvr08zvn91y8cHFxx9z36cpvfY4+v2diwMXF3c/tPT65Pip8yd+Bi4v7fG6+QcnLFi4u7rdz1yJwcXGfz02an/Mtyzmo+ncs6NVwcXEH3MnAdNX1pvkuLi7uOJVIilpvjNJ8Oi4u7hZudeTRi0by5icqc7i4uFu4eRuTR63Jr5KX+eeJuLi4F3Orxy/KW5N4gBIVVlxc3C3cHj05YFHd+uQjV1xc3Ku5vcgzH3om8UwhksHFxb2YW41Uq2Fqr8WK2h5cXNzLuHmRqr7GYiIuLu4W7qRU9ULZ3rbmj0wYFxf3Mm71sFSvePWOceDi4t7FzQ9JzEOR/MjF4bNwcXG3cKvRyKTH6oWphwNTXFzcy7g5btV0Ii95uLi493KTslI9SFGNb6PXxsXF3cjNV9Ig5ZFtOfPBxcXdwp0fmJg0SNUyiouLu5ObF6M8VunFtFGBw8XF3chNmpbJZqXXLBU+xsXFvYmbF6Dq3Qo2XFzcB3Pn26P8QAYuLu5d3OomJsFNhiMLxiK4uLgDbnVg2otjq/fHxcW9ifsDZBku5RiDPPkAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
