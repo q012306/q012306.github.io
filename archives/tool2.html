@@ -1,246 +1,677 @@
 <!DOCTYPE html>
-<html lang="z">
-<head>
-    <meta charset="utf-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+
+<html lang="zh-CN">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        © SukkaW
+        GitHub: https://github.com/SukkaW/hexo-theme-suka
+        Version: 1.3.3
+    -->
+    <script>
+window.lsVersion = "1.3.3",
+window.oldVersion = [
     
-    <title>【工具推荐】 神经卷积网络图片放大-waifu2x | GoodGuy&#39;blog</title>
-    <meta name="renderer" content="webkit">
-    <meta name="HandheldFriendly" content="True">
-    <meta name="MobileOptimized" content="320">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        
+            "0.2.0","0.0.1","0.1.0","1.0.0","1.0.1","1.1.0","1.1.1","1.2.0","1.3.0","1.3.2"
+        
+    
+]
+</script>
 
-    <meta name="description" content="低调做人,低调做事.咸鱼虽寿,犹有竟时.">
+    <!-- ### DNS Prefetch ### -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+<!-- busuanzi -->
 
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="【工具推荐】 神经卷积网络图片放大-waifu2x | GoodGuy&#39;blog">
-    <meta name="twitter:description" content="低调做人,低调做事.咸鱼虽寿,犹有竟时.">
+    <link rel="dns-prefetch" href="//busuanzi.ibruce.info">
+
+
+<!-- comment -->
+
+
+
+
+
+
+
+<!-- analytics -->
+
+
+
+
+
+
+
+
+    <!-- ### Preload ### -->
+    
+    <!-- Busuanzi -->
+    
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.js" as="script">
+
+
+
+
+
+
+
+    <!-- ### Meta & Title & Info ### -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge, chrome=1">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+
+<!-- Title -->
+<title>【工具推荐】 神经卷积网络图片放大-waifu2x | GoodGuy&#39;blog</title>
+
+<!-- favicon -->
+<!-- Favicons -->
+
+    <link rel="icon" type="image/ico" href="/img/suka-favicon.ico">
+
+
+
+
+
+
+<!-- Android Chrome Color -->
+
+
+
+<meta name="format-detection" content="telephone=no">
+
+<!-- Description -->
+<meta name="description" content="简介使用卷积神经网络对动漫风格的图片进行放大操作（支持照片），是一套自带像素填充与降噪的算...">
+
+<!-- Keywords -->
+<meta name="keywords" content="">
+
+<!-- Disable Fucking Bloody Baidu Tranformation -->
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <!-- ### Import File ### -->
+    
+        <!-- spectre.css -->
+
+    <link rel="stylesheet" href="/lib/spectre/spectre.min.css">
+
+
+<style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    a, a:visited {
+        color: #0070ff;
+    }
+
+    a:active, a:focus, a:hover {
+        color: #0070ff;
+        opacity: .75;
+    }
+
+    #post-content a,
+    #post-content a:hover,
+    #post-content a:focus,
+    #post-content a:visited {
+        color: #005eb9;
+        opacity: 1;
+    }
+
+    .post-entry .card-body a {
+        color: #0070ff;
+    }
+
+    .avatar {
+        background: #444;
+    }
+
+    .navbar-link,
+    .navbar-link:visited,
+    .timeline .timeline-item .timeline-icon.icon-lg {
+        color: #0070ff;
+    }
+
+    .navbar-link:hover {
+        color: #0070ff;
+        opacity: .8;
+    }
+
+    #search-input .btn,
+    #disqus_click_btn,
+    #disqus-switch-to-direct,
+    #disqus-loadmore-button {
+        background: #727e96;
+        border-color: #727e96;
+        color: #fff;
+    }
+
+    #post-toc a.post-toc-link,
+    #post-toc a.post-toc-link:visited,
+    .share-menu.menu .menu-item>a {
+        color: #727e96;
+    }
+
+    .share-menu.menu .menu-item>a:hover,
+    .share-menu.menu .menu-item>a:focus,
+    .share-menu.menu .menu-item>a:visited {
+        color: #50596c;
+        background: #f8f9fa;
+        opacity: .85;
+    }
+</style>
+
+<!-- style.css -->
+
+    <link rel="stylesheet" href="/css/style.min.css">
+
+
+
+
+
+
+
+
+
+    <!-- Prettify Theme -->
+    
+    
+        <link rel="stylesheet" href="/css/highlight/github.min.css">
+    
+
+
+
+    
+
+    <!-- ### Site Verification ### -->
+    
+
+
+    <!-- ### RSS ### -->
+    
+
+    <!-- ### WebApp ### -->
+    <meta name="mobile-web-app-capable" content="yes">
+<meta name="application-name" content="GoodGuy&#39;blog">
+<meta name="msapplication-starturl" content="http://yoursite.com">
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="GoodGuy&#39;blog">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<!-- Manifest Import -->
+
+<!-- Open Search -->
+
+
+    <!-- ### The Open Graph & Twitter Card Protocol ### -->
+    <meta property="og:title" content="【工具推荐】 神经卷积网络图片放大-waifu2x | GoodGuy&#39;blog">
+<meta property="og:site_name" content="GoodGuy&#39;blog">
+
+<meta property="og:locale" content="zh-CN">
+
+<meta property="og:url" content="http://yoursite.com/archives/tool2.html">
+<meta property="og:image" content="http://yoursite.com/img/suka-favicon.ico">
+
+<meta property="og:description" content="简介使用卷积神经网络对动漫风格的图片进行放大操作（支持照片），是一套自带像素填充与降噪的算...">
+
+<meta name="twitter:card" content="summary">
+
 
     <meta property="og:type" content="article">
-    <meta property="og:title" content="【工具推荐】 神经卷积网络图片放大-waifu2x | GoodGuy&#39;blog">
-    <meta property="og:description" content="低调做人,低调做事.咸鱼虽寿,犹有竟时.">
+    <meta property="article:published_time" content="2019-09-28T14:03:57.688Z">
+    <meta property="article:modified_time" content="2019-09-28T14:03:57.688Z">
+    <meta property="article:author" content="GoodGuy">
+    <meta property="og:article:tag" content=""> 
 
-    
-    <meta name="author" content="GoodGuy">
-    
-    <link rel="stylesheet" href="/css/vno.css">
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
 
-    
-    <link rel="icon" href="/images/favicon.ico">
-    
 
-    <meta name="generator" content="hexo"/>
+
+
+    <!-- ### Analytics ### -->
     
 
-    <link rel="canonical" href="http://yoursite.com/archives/tool2.html"/>
 
-                 
+
+
+
+
+
+
+    <!-- ### Canonical link ### -->
+    <link rel="canonical" href="http://yoursite.com/archives/tool2.html">
+
+    <!-- ### Structured Data ### -->
+    
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "url": "http://yoursite.com/archives/tool2.html",
+    "@type": "BlogPosting",
+    "logo": "http://yoursite.com/img/suka-favicon.ico",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://yoursite.com/archives/tool2.html"
+    },
+    "headline": "【工具推荐】 神经卷积网络图片放大-waifu2x | GoodGuy&#39;blog",
+    
+    "image": {
+        "@type": "ImageObject",
+        "url": "http://yoursite.com/img/suka-favicon.ico"
+    },
+    
+    "datePublished": "2019-09-28T14:03:57.688Z",
+    "dateModified": "2017-09-06T16:47:57.326Z",
+    "author": {
+        "@type": "Person",
+        "name": "GoodGuy",
+        "image": {
+            "@type": "ImageObject",
+            "url": "http://yoursite.com/img/default_avatar.png"
+        },
+        "description": "Hi, nice to meet you."
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "GoodGuy&#39;blog",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "http://yoursite.com/img/suka-favicon.ico"
+        }
+    },
+    
+    "potentialAction": {
+        "@type": "SearchAction",
+        "target": "http://yoursite.com/search?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+    },
+    
+    "keywords": "",
+    "description": "简介使用卷积神经网络对动漫风格的图片进行放大操作（支持照片），是一套自带像素填充与降噪的算..."
+}
+</script>
+
+
+
+    <!-- ### Custom Head ### -->
+    
+
+
 </head>
 
-<body class="home-template no-js">
-    <script src="//cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
-    <script src="/js/main.js"></script>
-    <span class="mobile btn-mobile-menu">
-        <i class="fa fa-list btn-mobile-menu__icon"></i>
-        <i class="fa fa-angle-up btn-mobile-close__icon hidden"></i>
-    </span>
+    <body>
+        
 
+            
+
+            <!-- ### Main content ### -->
+            <!-- ## Header ##-->
+<header>
+    <h1 class="header-title text-center"><a href="/">GoodGuy&#39;blog</a></h1>
+
+    <p class="text-center header-slogan">
+        
+            
+                Hi, nice to meet you.
+            
+        
+    </p>
+
+    <nav class="navbar-section text-center">
     
-<header class="panel-cover panel-cover--collapsed" style="background-image: url(/images/background-cover.jpg)">
-  <div class="panel-main">
-    <div class="panel-main__inner panel-inverted">
-    <div class="panel-main__content">
+        <a href="/" class="navbar-link">首页</a>
+    
+    
+        <a href="/archives/" class="navbar-link">归档</a>
+    
+    
+        <a href="/search" class="navbar-link">搜索</a>
+    
+    
+        <a href="/links/" class="navbar-link">Friends</a>
+    
+    
+        <div class="dropdown dropdown-right">
+    <a class="navbar-link dropdown-toggle" tabindex="0">分享</a>
+    <ul class="menu share-menu">
 
-        <a href="/" title="前往 GoodGuy&#39;blog 的主页"><img src="/images/avatar.jpg" width="80" alt="GoodGuy&#39;blog logo" class="panel-cover__logo logo" /></a>
-        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage for GoodGuy&#39;blog">GoodGuy&#39;blog</a></h1>
+        <!-- Share Weibo -->
         
-        <hr class="panel-cover__divider" />
-        <p class="panel-cover__description">低调做人,低调做事.咸鱼虽寿,犹有竟时.</p>
-        <hr class="panel-cover__divider panel-cover__divider--secondary" />
-
-        <div class="navigation-wrapper">
-          <div>
-          <nav class="cover-navigation cover-navigation--primary">
-            <ul class="navigation">
-              <li class="navigation__item"><a href="/#blog" title="访问博客" class="blog-button">文字阁</a></li>
-            
-              <li class="navigation__item"><a href="/aboutme">关于我</a></li>
-            
-            </ul>
-          </nav>
-          </div>
-          <div>
-          <nav class="cover-navigation navigation--social">
-  <ul class="navigation">
-
-  <!-- Weibo-->
-  
-  <li class="navigation__item">
-    <a href="https://weibo.com/3207855562/" title="我的微博" target="_blank">
-      <i class='social fa fa-weibo'></i>
-      <span class="label">Weibo</span>
-    </a>
-  </li> 
-
-
-  <!-- Github -->
-  
-  <li class="navigation__item">
-    <a href="https://github.com/q012306/" title="查看我的GitHub主页" target="_blank">
-      <i class='social fa fa-github'></i>
-      <span class="label">Github</span>
-    </a>
-  </li>
-
-
-<!-- Stack Overflow -->
+        <li class="menu-item">
+            <a href="http://service.weibo.com/share/share.php?appkey=&title=GoodGuy'blog&url=http://yoursite.com&pic=http://yoursite.com/img/suka-favicon.ico&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">分享到微博</a>
+        </li>
         
 
-  <!-- Google Plus -->
-  
+        <!-- Share Twitter -->
+        
+        <li class="menu-item">
+            <a href="https://twitter.com/intent/tweet?text=GoodGuy'blog&url=http://yoursite.com&via=GoodGuy" target="_blank" rel="external noopener noreferrer nofollow">分享到 Twitter</a>
+        </li>
+        
 
-<!-- Facebook -->
+        <!-- Share Facebook -->
+        
+        <li class="menu-item">
+            <a href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com" target="_blank" rel="external noopener noreferrer nofollow">分享到 Facebook</a>
+        </li>
+        
 
-  
-<!-- Twitter -->
+        <!-- Share Google+ -->
+        
+        <li class="menu-item">
+            <a href="https://plus.google.com/share?url=http://yoursite.com" target="_blank" rel="external noopener noreferrer nofollow">分享到 Google+</a>
+        </li>
+        
 
-  
+        <!-- Share LinkedIn -->
+        
+        <li class="menu-item">
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://yoursite.com&title=【工具推荐】 神经卷积网络图片放大-waifu2x" target="_blank" rel="external noopener noreferrer nofollow">分享到 LinkedIn</a>
+        </li>
+        
 
+        <!-- Share QQ -->
+        
+        <li class="menu-item">
+            <a href="http://connect.qq.com/widget/shareqq/index.html?site=GoodGuy'blog&title=【工具推荐】 神经卷积网络图片放大-waifu2x&summary=低调做人,低调做事.咸鱼虽寿,犹有竟时.&pics=http://yoursite.com/img/suka-favicon.ico&url=http://yoursite.com" target="_blank" rel="external noopener noreferrer nofollow"> 分享到 QQ</a>
+        </li>
+        
 
+        <!-- Share Telegram -->
+        
+        <li class="menu-item">
+            <a href="https://t.me/share/url?url=http://yoursite.com&text=【工具推荐】 神经卷积网络图片放大-waifu2x" target="_blank" rel="external noopener noreferrer nofollow">分享到 Telegram</a>
+        </li>
+        
 
-  </ul>
+        <!-- QRCode -->
+        
+        <li class="menu-item">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIQAAACECAAAAAB0L9x7AAABjElEQVR42u3awQ7CIBCE4b7/S+vFQ2PYnUEaOjV/LxqT0q8JwixwvAKuAwQIEI9AHM01vPHz++jzfJ/TLohcRPew0QPPD/n+PtUuiGjEqGONfu8eVMFH7YJ4PmI0uDmdGMT/IsqGigkKxPMRKrxUaBV2LplFQWxHdIF05fOytA1iK0IWrUWocTviJVU5iK2IriO5qCoEq/ZA5CLUQkcVZp0Bry2QQMQjVHHrhhrVuUFkI5yBSA1M3Qu1HRpELKILtt1DumK368QgshHdoqlaWFcDnHo5EJkIZ/JRYdgZzKx/B4gYhFP8qsV3FXaWZlEQWxHugpkbft1AAyIboYrfmeDiLs6CyEeo8OIEX7VJJzsmiCiEU/Q4g9nMi4DIRrgTmtrI7e63DwCCuBXhbMRVC/EqyKjNFxCZiJnNEvdSiy8g8hHuwR6nIKrwl50uArEN4R4AdA+SL58aABGNUJu4M9CfOyaIKIR74Gs2LIPIRjiHOGZhqtgGkYv4JbDOhtultA1iK+LOCwQIENGINwmnmZmZK5wPAAAAAElFTkSuQmCC" alr="QRCode">
+        </li>
+        
+
+    </ul>
+</div>
+    
+    
 </nav>
-
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-
-    <div class="panel-cover--overlay cover-purple"></div>
-  </div> 
 </header>
 
-    <div class="content-wrapper">
-        <div class="content-wrapper__inner">
-            <article class="post-container post-container--single">
+            
+    <!-- ## Post ## -->
+    
+    
 
-  <header class="post-header">
-    <div class="post-meta">
-      <time datetime="2019-09-28T14:03:57.688Z" class="post-list__meta--date date">2019-09-28</time> &#8226; <span class="post-meta__tags tags">于  </span>
-      <span class="page-pv">
-       阅读 <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>
-      </span> 
-   
+
+<div class="post-container">
+    <div id="post-card" class="card">
+        
+        <div class="card-item-container">
+            <div class="card-inner-cell">
+                <!-- # Post Header Info # -->
+                <div class="card-header">
+                    
+    <h1 class="card-title h3 mb-2">【工具推荐】 神经卷积网络图片放大-waifu2x</h1>
+
+
+
+
+<div class="post-header-info">
+    <p class="post-header-info-left text-gray">
+        <img class="author-thumb lazyload" data-src="/img/default_avatar.png" src="/img/suka-lazyload.gif" alt="GoodGuy's Avatar">
+        <span>2019-09-28</span>
+        
+        
+            <!-- Busuanzi Post Views -->
+<span id="busuanzi_container_page_pv" hidden>
+    <span class="suka-devide-dot"></span>
+    <span></span>
+    <span id="busuanzi_value_page_pv"></span>
+    <span>Views</span>
+</span>
+        
+        
+    </p>
+    <div class="post-header-info-right">
+        
+            <div class="dropdown dropdown-right">
+<a class="dropdown-toggle" tabindex="0">分享本文</a>
+<ul class="menu share-menu">
+    <!-- Share Weibo -->
+    
+    <li class="menu-item">
+        <a href="http://service.weibo.com/share/share.php?appkey=&title=【工具推荐】 神经卷积网络图片放大-waifu2x&url=http://yoursite.com/archives/tool2.html&pic=http://yoursite.com/img/suka-favicon.ico&searchPic=false&style=simple" target="_blank" rel="external noopener noreferrer nofollow">分享到微博</a>
+    </li>
+    
+
+    <!-- Share Twitter -->
+    
+    <li class="menu-item">
+        <a href="https://twitter.com/intent/tweet?text=【工具推荐】 神经卷积网络图片放大-waifu2x&url=http://yoursite.com/archives/tool2.html&via=GoodGuy" target="_blank" rel="external noopener noreferrer nofollow">分享到 Twitter</a>
+    </li>
+    
+
+    <!-- Share Facebook -->
+    
+    <li class="menu-item">
+        <a href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/archives/tool2.html" target="_blank" rel="external noopener noreferrer nofollow">分享到 Facebook</a>
+    </li>
+    
+
+    <!-- Share Google+ -->
+    
+    <li class="menu-item">
+        <a href="https://plus.google.com/share?url=http://yoursite.com/archives/tool2.html" target="_blank" rel="external noopener noreferrer nofollow">分享到 Google+</a>
+    </li>
+    
+
+    <!-- Share LinkedIn -->
+    
+    <li class="menu-item">
+        <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://yoursite.com/archives/tool2.html&title=GoodGuy'blog" target="_blank" rel="external noopener noreferrer nofollow">分享到 LinkedIn</a>
+    </li>
+    
+
+    <!-- Share QQ -->
+    
+    <li class="menu-item">
+        <a href="http://connect.qq.com/widget/shareqq/index.html?site=GoodGuy'blog&title=GoodGuy'blog&summary=低调做人,低调做事.咸鱼虽寿,犹有竟时.&pics=http://yoursite.com/img/suka-favicon.ico&url=http://yoursite.com/archives/tool2.html" target="_blank" rel="external noopener noreferrer nofollow"> 分享到 QQ</a>
+    </li>
+    
+
+    <!-- Share Telegram -->
+    
+    <li class="menu-item">
+        <a href="https://t.me/share/url?url=http://yoursite.com/archives/tool2.html&text=GoodGuy'blog" target="_blank" rel="external noopener noreferrer nofollow">分享到 Telegram</a>
+    </li>
+    
+
+    <!-- QRCode -->
+    
+    <li class="menu-item">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIQAAACECAAAAAB0L9x7AAABjElEQVR42u3awQ7CIBCE4b7/S+vFQ2PYnUEaOjV/LxqT0q8JwixwvAKuAwQIEI9AHM01vPHz++jzfJ/TLohcRPew0QPPD/n+PtUuiGjEqGONfu8eVMFH7YJ4PmI0uDmdGMT/IsqGigkKxPMRKrxUaBV2LplFQWxHdIF05fOytA1iK0IWrUWocTviJVU5iK2IriO5qCoEq/ZA5CLUQkcVZp0Bry2QQMQjVHHrhhrVuUFkI5yBSA1M3Qu1HRpELKILtt1DumK368QgshHdoqlaWFcDnHo5EJkIZ/JRYdgZzKx/B4gYhFP8qsV3FXaWZlEQWxHugpkbft1AAyIboYrfmeDiLs6CyEeo8OIEX7VJJzsmiCiEU/Q4g9nMi4DIRrgTmtrI7e63DwCCuBXhbMRVC/EqyKjNFxCZiJnNEvdSiy8g8hHuwR6nIKrwl50uArEN4R4AdA+SL58aABGNUJu4M9CfOyaIKIR74Gs2LIPIRjiHOGZhqtgGkYv4JbDOhtultA1iK+LOCwQIENGINwmnmZmZK5wPAAAAAElFTkSuQmCC" alt="QRCode">
+    </li>
+    
+
+</ul>
+</div>
+        
     </div>
-    <h1 class="post-title">【工具推荐】 神经卷积网络图片放大-waifu2x</h1>
-  </header>
-
-  <section class="post">
-    <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>使用卷积神经网络对动漫风格的图片进行放大操作（支持照片），<br>是一套自带像素填充与降噪的算法。</p>
+</div>
+                </div>
+                <div class="card-body">
+                    
+                        
+                            <div id="post-toc">
+                                <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#简介"><span class="post-toc-number">1.</span> <span class="post-toc-text">简介</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#影响"><span class="post-toc-number">2.</span> <span class="post-toc-text">影响</span></a></li></ol>
+                            </div>
+                        
+                    
+                    <article id="post-content">
+                        <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>使用卷积神经网络对动漫风格的图片进行放大操作（支持照片），<br>是一套自带像素填充与降噪的算法。</p>
 <p>目前拥有多个版本<br>在线网页版本：<a href="http://waifu2x.udp.jp/" target="_blank" rel="external">http://waifu2x.udp.jp/</a><br>Git站caffe版本源码：<a href="https://github.com/lltcggie/waifu2x-caffe" target="_blank" rel="external">https://github.com/lltcggie/waifu2x-caffe</a></p>
 <p>waifu2x同时支持CUAD cuDNN 和CPU多个模式</p>
 <h3 id="影响"><a href="#影响" class="headerlink" title="影响"></a>影响</h3><p>目前二次元界最好用的图片黑科技之一，可以结合VapouSynth优雅地调用Waifu2x处理视频（被国内某知名字幕组如 <del>魔穗</del> 采用）</p>
 <p><img src="http://8.pic.pc6.com/thumb/up/2016-7/2016729115359960979188638250_600_0.jpg" alt="1"><br><img src="http://8.pic.pc6.com/thumb/up/2016-7/2016729127208759758077417130_600_0.jpg" alt="1"></p>
 
-  </section>
-
-</article>
-
-<section class="read-more">
-           
-    
-               
-            <div class="read-more-item">
-                <span class="read-more-item-dim">最近的文章</span>
-                <h2 class="post-list__post-title post-title"><a href="/archives/test.html" title="【转载】ANDROID中调用文件管理器并返回选中文件的路径">【转载】ANDROID中调用文件管理器并返回选中文件的路径</a></h2>
-                <p class="excerpt">
-                
-                    实际项目中经常需要调用文件管理器，选择下载路径或者上传的本地文件路径。今天就给大家做个demo示范该功能的实现过程。一、实现效果预览以下为三星S6的样机测试效果，当然不同手机调用后的效果不一样。二、代码实现布局文件很简单，就一个Button和TextView，这里不示范了，直接上实现代码： 
-                &hellip;
-                </p>
-                <div class="post-list__meta"><time datetime="2019-09-29T02:49:00.000Z" class="post-list__meta--date date">2019-09-29</time> &#8226; <span class="post-list__meta--tags tags">于 </span><a class="btn-border-small" href="/archives/test.html">继续阅读</a></div>
-                           
-            </div>
-        
-        
-               
-            <div class="read-more-item">
-                <span class="read-more-item-dim">更早的文章</span>
-                <h2 class="post-list__post-title post-title"><a href="/archives/skill2.html" title="如何不使用第三方的情况下解决bilibili客户端离线下载新番版权受限问题">如何不使用第三方的情况下解决bilibili客户端离线下载新番版权受限问题</a></h2>
-                <p class="excerpt">
-                
-                
-前言
-哔哩哔哩（B站）是众所周知的 ACG 二刺螈 网站
-由于大版权时代的来临，连部分有版权的新番也无法离线下载
-在这里写出如何不使用第三方插件或解析软件的前提下进行离线
+                    </article>
+                    
 
 
-原理：利用不同地区的版权限制使用VPN或SS代理获得离线权
-优点：
-不需要第三方插件或解析软件，直接通过B站官方客户端下载
-                &hellip;
-                </p>
-                <div class="post-list__meta"><time datetime="2019-09-28T14:03:57.678Z" class="post-list__meta--date date">2019-09-28</time> &#8226; <span class="post-list__meta--tags tags">于 </span><a class="btn-border-small" href="/archives/skill2.html">继续阅读</a></div>
-                       
-            </div>
-        
-     
-   
-   
-  
-</section>
-
-  
-
-            <footer class="footer">
-    <span class="footer__copyright">
-        &copy; 2019 GoodGuy - 本站点采用 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>
-       
-    </span>
-    <span class="footer__copyright">
-             - 基于 <a href="http://hexo.io">Hexo</a> 搭建，使用 <a href="https://github.com/monniya/hexo-theme-new-vno ">new-vno</a> 主题
-         </span>
-       
-    
-    
-</footer>
-
-
-        </div>
-    </div>
-
-     
-<script>
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-	ga('create', 'UA-78918255-1', 'auto');
-	ga('send', 'pageview');
-</script>
-
-    
+    <blockquote id="date-expire-notification" class="post-expired-notify">本文最后更新于 <span id="date-expire-num"></span> 天前，文中所描述的信息可能已发生改变</blockquote>
     <script>
-        var _hmt = _hmt || [];
-        (function() {
-            var hm = document.createElement("script");
-            hm.src = "//hm.baidu.com/hm.js?9cdad07c755fa23f6aced510c6760e87";
-            var s = document.getElementsByTagName("script")[0]; 
-            s.parentNode.insertBefore(hm, s);
-        })();
+        var dateUpdate = Date.parse("2017-09-07");
+        var nowDate = new Date();
+        var a = nowDate.getTime();
+        var b = a - dateUpdate;
+        var daysUpdateExpire = Math.floor(b/(24*3600*1000));
+        if (daysUpdateExpire >= 120) {
+            document.getElementById('date-expire-num').innerHTML = daysUpdateExpire;
+        } else {
+            document.getElementById('date-expire-notification').style.display = 'none';
+        }
     </script>
 
 
+<p class="post-footer-info mb-0 pt-0">本文发表于&nbsp;<time datetime="2019-09-28T14:03:57.688Z" itemprop="datePublished">2019-09-28</time>
 
-    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    , 最后修改于&nbsp;<time datetime="2017-09-06T16:47:57.326Z" itemprop="dateModified">2017-09-07</time>
+
+</p>
+<p class="post-footer-info mb-0 pt-2">
+
+
+
+
+</p>
+
+                </div>
+                
+<div class="post-nav px-2 bg-gray">
+<ul class="pagination">
+    <!-- Prev Nav -->
     
+        <li class="page-item page-prev">
+            <a href="/archives/test.html" rel="prev">
+                <div class="page-item-title"><i class="icon icon-back" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">【转载】ANDROID中调用文件管理器并返回选中文件的路径</div>
+            </a>
+        </li>
     
-</body>
+
+    <!-- Next Nav -->
+    
+        <li class="page-item page-next">
+            <a href="/archives/skill2.html" rel="next">
+                <div class="page-item-title"><i class="icon icon-forward" aria-hidden="true"></i></div>
+                <div class="page-item-subtitle">如何不使用第三方的情况下解决bilibili客户端离线下载新番版权受限问题</div>
+            </a>
+        </li>
+    
+</ul>
+</div>
+
+                
+                    <!-- # Comment # -->
+                    
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+            <!-- ### Footer ### -->
+            <footer class="text-center">
+    <!-- footer copyright -->
+    <p class="footer-copyright mb-0">Copyright&nbsp;©&nbsp;<span data-year></span>
+        <a class="footer-copyright-a" href="http://yoursite.com">GoodGuy&#39;blog</a>
+    </p>
+    <!-- footer custom text -->
+    <p class="footer-text mb-0">
+    
+    </p>
+    <!-- footer develop info -->
+    <p class="footer-develop mb-0">
+        
+            
+    <!-- Busuanzi User Views -->
+    <span id="busuanzi_container_site_uv" hidden>
+        <span></span>
+        <span id="busuanzi_value_site_uv"></span>
+        <span>Viewers</span>
+        
+            <span>|</span>
+        
+    </span>
+
+
+
+        
+        
+        Powered by&nbsp;<!--
+         --><a href="https://hexo.io" target="_blank" class="footer-develop-a" rel="external nofollow noopener noreferrer">Hexo</a><span class="footer-develop-divider"></span>Theme&nbsp;-&nbsp;<!--
+         --><a href="https://github.com/SukkaW/hexo-theme-suka" target="_blank" class="footer-develop-a" rel="external noopener">Suka</a>
+    </p>
+</footer>
+
+        
+
+        <!-- ### Import File ### -->
+        <!-- ### Footer JS Import ### -->
+
+<script>
+window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 50
+};
+
+
+
+    /* Copyright */
+    var copyrightNow = new Date().getFullYear();
+    var copyrightContent = document.querySelector('span[data-year]')
+    
+        copyrightContent.textContent = copyrightNow
+    
+
+
+
+/* Cnosole Log */
+console.log('\n %c Suka Theme (hexo-theme-suka) | © SukkaW | Verision 1.3.3 %c https://github.com/SukkaW/hexo-theme-suka \n', 'color: #fff; background: #444; padding:5px 0;', 'background: #bbb; padding:5px 0;');
+</script>
+
+<!-- vanilla-lazyload -->
+
+    <script src="/lib/vanilla-lazyload/lazyload.min.js" async></script>
+
+
+
+    <!-- Busuanzi -->
+    
+    <script src="https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.js" async></script>
+
+
+<!-- Offset -->
+
+
+
+
+
+
+
+<!-- gallery.js -->
+
+
+<!-- Comment -->
+
+
+<!-- ### Custom Footer ### -->
+
+
+    </body>
+
 </html>
