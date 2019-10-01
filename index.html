@@ -158,6 +158,47 @@
     <ul class="post-list">
     
         <li class="post-list-item fade">
+            <article id="post-text2"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2019-10-01 12:24:09" datetime="2019-10-01T04:24:09.000Z"  itemprop="datePublished">2019-10-01</time>
+
+        
+
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/archives/text2.html">【转载】Android 外置 SD 卡写入权限问题</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        最近升级到 Android 9.0 后，发现文件管理器在写入外置 SD 卡时出现了写入失败的问题，定位到 File.canWrite() 方法，发现返回了 false。经过讨论追踪定位，发现是由于 Google 的一个更改导致的:
+diff --git a/data/etc/platform.xml b/data/etc/platform.xml
+index 04006b1..3021555...
+    
+
+        <a href="/archives/text2.html" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
             <article id="post-text1"
   class="article-card article-type-post" itemprop="blogPost">
 
